@@ -1,25 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <title>My Portfolio</title>
 </head>
-<body class="bg-gray-700 text-white p-6 font-sans">
-    <header class="mb-8 flex grid-cols-3 items-center justify-between">
-        <h1 class="text-3xl">Bara' Al Omari</h1>
+
+<body class="bg-stone-900 text-white p-6 font-poppins">
+    <header class="mb-8 mr-15 ml-15 flex grid-cols-3 items-center justify-between">
+        <h1 class="text-3xl font-bold">Bara' Al Omari</h1>
         <nav class="mt-4">
-            <ul class="flex space-x-4">
-                <li class="p-6 "><a href="#about">About Me</a></li>
+            <ul class="flex space-x-1">
+                <li class="p-6 "><a href="#about">Home</a></li>
+                <li class="p-6 "><a href="#skills">Skills</a></li>
                 <li class="p-6"><a href="#projects">Projects</a></li>
                 <li class="p-6"><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
+    <div class="mr-15 ml-15">
+        <div class="flex space-x-4 mb-2">
+            <p class="text-3xl font-bold">Hello <span class="text-3xl font-bold text-violet-700">.</span></p>
+        </div>
+        <div class="flex space-x-4 mb-2">
+            <div class="w-25 h-0.5 bg-violet-700 my-6"></div>
+            <p class="text-3xl">I'm Bara'</p>
+        </div>
+        <div class="flex space-x-4 mb-9">
+            <p class="text-4xl font-bold">Passionate Software Engineer</p>
+        </div>
+        <div class="flex space-x-4 mb-2">
+            <a class="hover:bg-violet-800 bg-violet-700 button p-2 rounded-[10px] "
+                href="https://github.com/BaraAlOmari"> <i class="fab fa-github"></i></a>
+            <a class="hover:bg-violet-800 bg-violet-700 button p-2 rounded-[10px] "
+                href="https://www.linkedin.com/in/bara-al-omari/"> <i class="fab fa-linkedin"></i></a>
+            <a class="hover:bg-violet-800 button p-2 rounded-[10px] outline-2  outline-violet-700"
+                href=""> Resume </a>
+        </div>
+
+    </div>
+
+
+
+
+    <main class="mt-8">
         <section id="about">
             <h2 class="text-2xl font-bold">About Me</h2>
-            <p>Welcome to my portfolio! I am a passionate web developer with experience in creating dynamic and responsive websites.</p>
+            <p>Welcome to my portfolio! I am a passionate web developer with experience in creating dynamic and
+                responsive websites.</p>
         </section>
         <section id="projects">
             <h2>Projects</h2>
@@ -31,8 +63,10 @@
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <p>If you'd like to get in touch, feel free to reach out via email at <a href="mailto:yourname@example.com">yourname@example.com</a>.</p>
+            <p>If you'd like to get in touch, feel free to reach out via email at <a
+                    href="mailto:yourname@example.com">yourname@example.com</a>.</p>
         </section>
     </main>
 </body>
+
 </html>
