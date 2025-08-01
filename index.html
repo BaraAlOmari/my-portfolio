@@ -9,79 +9,105 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <title>My Portfolio</title>
 </head>
-
-<body class="bg-stone-900 text-white p-6 font-poppins">
-    <header class="mt-8 mb-8 mr-25 ml-25 flex grid-cols-3 items-center justify-between">
-        <h1 class="text-3xl font-bold">Bara' Al Omari</h1>
+<!-- Header -->
+<body class="bg-stone-900 text-white p-4 md:p-6 font-poppins">
+    <header class="mt-8 mb-8 md:mr-25 md:ml-25 flex flex-col md:flex-row md:grid-cols-3 items-center justify-between">
+        <h1 class="text-3xl font-bold mb-4 md:mb-0 text-white/75">Bara' Al Omari</h1>
         <nav>
-            <ul class="flex space-x-1">
-                <li class="hover:text-violet-400/75 pl-8 text-xl"><a href="#about">Home</a></li>
-                <li class="hover:text-violet-400/75 pl-8 text-xl"><a href="#skills">Skills</a></li>
-                <li class="hover:text-violet-400/75 pl-8 text-xl"><a href="#projects">Projects</a></li>
-                <li class="hover:text-violet-400/75 pl-8 text-xl"><a href="#contact">Contact</a></li>
+            <ul class="flex flex-wrap justify-center gap-2 md:gap-0 md:space-x-1">
+                <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#about">Home</a></li>
+                <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#skills">Skills</a></li>
+                <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#projects">Projects</a>
+                </li>
+                <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <div class="mr-30 ml-25 flex flex-row items-center gap-10">
-        <div class="flex flex-col flex-1">
-            <div class="flex space-x-4 mb-2">
-                <p class="text-4xl font-bold">Hello <span class="text-4xl font-bold text-violet-700">.</span></p>
+    <!-- Welcome Section -->
+    <div class="md:mr-10 md:ml-25 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+        <div class="flex flex-col flex-1 order-2 md:order-1">
+            <div class="flex space-x-4">
+                <p class="text-3xl md:text-4xl font-bold">Hello <span class="text-violet-700">.</span></p>
             </div>
-            <div class="flex space-x-4 mb-2">
-                <div class="w-40 h-1 bg-violet-700 -ml-35 my-7 rounded-[10px]"></div>
-                <p class="text-4xl">I'm Bara'</p>
+            <div class="flex space-x-4 mb-3 items-center">
+                <div class="w-40 h-1 bg-violet-700 -ml-35 my-7 rounded-[10px] mt-12.5"></div>
+                <p class="text-3xl md:text-4xl">I'm Bara'</p>
             </div>
-            <div class="flex space-x-4 mb-2 -my-5">
-                <p class="text-4xl font-bold">Software Engineer</p>
+            <div class="flex space-x-4 mb-2 -my-4 ">
+                <p class="text-3xl md:text-4xl font-bold">Software Engineer</p>
             </div>
-            <div class="flex space-x-4 mb-2 mt-9">
-                <a class="hover:bg-violet-800 bg-violet-700 button p-3 rounded-[10px]"
-                    href="https://github.com/BaraAlOmari"> <i class="fab fa-github text-2xl mt-1"></i></a>
-                <a class="hover:bg-violet-800 bg-violet-700 button p-3 rounded-[10px]"
-                    href="https://www.linkedin.com/in/bara-al-omari/"><i class="fab fa-linkedin text-2xl mt-1"></i></a>
-                <a class="hover:bg-violet-700/30 bg-violet-950/75 button p-3 rounded-[10px] outline-2 outline-violet-700 mt-0.52 pt-4 text-gray-100" href="">
-                    My Resume</a>
+            <!-- Social Links -->
+            <div class="flex space-x-4 mb-2 mt-6 md:mt-9">
+                <a class="hover:bg-violet-800 bg-violet-700 button p-3 rounded-[10px] flex items-center"
+                    href="https://github.com/BaraAlOmari">
+                    <i class="fab fa-github text-xl md:text-2xl m-1"></i>
+                </a>
+                <a class="hover:bg-violet-800 bg-violet-700 button p-3 rounded-[10px] flex items-center"
+                    href="https://www.linkedin.com/in/bara-al-omari/">
+                    <i class="fab fa-linkedin text-xl md:text-2xl m-1"></i>
+                </a>
+                <a class="hover:bg-violet-700/30 bg-violet-950/75 button p-3 rounded-[10px] outline-2 outline-violet-700 text-gray-100 text-sm md:text-base flex items-center"
+                    href="">
+                    My Resume
+                </a>
             </div>
         </div>
-        <img class="w-90 h-auto object-contain mr-120" src="assets/images/avatar.png" alt="">
-        <img class="w-90 h-auto object-contain" src="assets/images/header_img.png" alt="">
+        <!-- Header Images -->
+        <div class="order-1 md:order-2 flex justify-center w-full md:w-auto">
+            <img class="hidden md:block w-90 h-auto object-contain md:mr-30" src="assets/images/header_img.png"
+                alt="Header image">
+        </div>
+        <div class="order-2 md:order-1 flex justify-center w-full md:w-auto -mb-1">
+            <img class="w-50 md:w-100 h-auto object-contain md:mr-80" src="assets/images/avatar.png"
+                alt="Avatar">
+        </div>
     </div>
-    <div class="bg-violet-500/10 p-10 -mt-2 -ml-6 -mr-6 shadow-[0_-80px_115px_rgba(112,8,231,0.45)] align-items-center flex justify-center">
-        <i class="text-violet-400/50 fab fa-html5 text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fab fa-css3 text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fab fa-js text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fab fa-react text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fa-brands fa-node text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fab fa-java text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fab fa-python text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fa-brands fa-git-alt text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fab fa-docker text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fab fa-figma text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fa-solid fa-shield-halved text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fa-solid fa-cloud text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fa-brands fa-linux text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fa-brands fa-bootstrap text-3xl mt-1 mr-15"></i>
-        <i class="text-violet-400/50 fa-solid fa-database text-3xl mt-1 mr-15"></i>
+
+    <!-- Header Tech Skill Icons -->
+    <div
+        class="bg-violet-500/10 p-6 md:p-10 -ml-4 -mr-4 md:-ml-6 md:-mr-6 shadow-[0_-80px_115px_rgba(112,8,231,0.45)] overflow-x-auto">
+        <div class="flex justify-center min-w-max space-x-8 md:space-x-15">
+            <i class="text-violet-400/50 fab fa-html5 text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fab fa-css3 text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fab fa-js text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fab fa-react text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fa-brands fa-node text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fab fa-java text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fab fa-python text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fa-brands fa-git-alt text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fab fa-docker text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fab fa-figma text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fa-solid fa-shield-halved text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fa-solid fa-cloud text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fa-brands fa-linux text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fa-brands fa-bootstrap text-2xl md:text-3xl"></i>
+            <i class="text-violet-400/50 fa-solid fa-database text-2xl md:text-3xl"></i>
+        </div>
     </div>
-    <main class="mt-8">
-        <section id="about">
-            <h2 class="text-2xl font-bold">About Me</h2>
-            <p>Welcome to my portfolio! I am a passionate web developer with experience in creating dynamic and
+
+    <!-- Main Content -->
+    <main class="mt-8 px-2 md:px-0">
+        <section id="about" class="mb-10">
+            <h2 class="text-2xl font-bold mb-4">About Me</h2>
+            <p class="text-lg">Welcome to my portfolio! I am a passionate web developer with experience in creating
+                dynamic and
                 responsive websites.</p>
         </section>
-        <section id="projects">
-            <h2>Projects</h2>
-            <ul>
-                <li><a href="project1.html">Project 1</a></li>
-                <li><a href="project2.html">Project 2</a></li>
-                <li><a href="project3.html">Project 3</a></li>
+        <section id="projects" class="mb-10">
+            <h2 class="text-2xl font-bold mb-4">Projects</h2>
+            <ul class="space-y-2">
+                <li><a class="hover:text-violet-400 text-lg" href="project1.html">Project 1</a></li>
+                <li><a class="hover:text-violet-400 text-lg" href="project2.html">Project 2</a></li>
+                <li><a class="hover:text-violet-400 text-lg" href="project3.html">Project 3</a></li>
             </ul>
         </section>
         <section id="contact">
-            <h2>Contact</h2>
-            <p>If you'd like to get in touch, feel free to reach out via email at <a
+            <h2 class="text-2xl font-bold mb-4">Contact</h2>
+            <p class="text-lg">If you'd like to get in touch, feel free to reach out via email at <a
+                    class="hover:text-violet-400 text-violet-400/75"
                     href="mailto:yourname@example.com">yourname@example.com</a>.</p>
         </section>
     </main>
 </body>
+
 </html>
