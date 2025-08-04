@@ -14,7 +14,7 @@
         }
 
         .animated-gradient {
-            background: linear-gradient(-45deg, #1C1917, #1C1917, #000000, #541baf);
+            background: linear-gradient(-45deg, #541baf, #1C1917, #000000, #541baf);
             background-size: 400% 400%;
             animation: gradientBG 4s ease infinite;
         }
@@ -85,16 +85,15 @@
 
 <body id="header" class="animated-gradient bg-stone-900 text-white p-4 md:p-6 font-poppins">
     <!-- Header -->
-    <header
-        class="header mt-8 mb-8 md:mr-25 md:ml-25 flex flex-col md:flex-row md:grid-cols-3 items-center justify-between">
+    <header style="z-index: 2;" id="navbar"
+        class="sticky top-5 mt-8 mb-8 md:mr-25 md:ml-25 flex flex-col md:flex-row md:grid-cols-3 items-center justify-between">
         <h1 class="text-xl md:text-2xl font-bold mb-4 md:mb-0 text-white/75 whitespace-nowrap">Bara'Codes | <span
                 class="text-violet-300 ">Developer Portfolio</span></h1>
         <nav>
             <ul class="flex flex-wrap justify-center gap-2 md:gap-0 md:space-x-1">
                 <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#about">About</a></li>
                 <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#skills">Skills</a></li>
-                <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a
-                        href="projects.html">Projects</a>
+                <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#projects">Projects</a>
                 </li>
                 <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#contact">Contact</a></li>
             </ul>
@@ -102,7 +101,7 @@
     </header>
 
     <!-- Welcome Section -->
-    <div class="md:mr-10 md:ml-25 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+    <div class="md:mr-10 md:ml-25 flex flex-col md:flex-row items-center gap-6 md:gap-10 ">
         <div class="flex flex-col flex-1 order-2 md:order-1 md:min-w-[450px]">
             <div class="flex space-x-4">
                 <p class="text-3xl md:text-4xl font-bold">Hello <span class="text-violet-700">.</span></p>
@@ -116,16 +115,17 @@
             </div>
             <!-- Social Links -->
             <div class="flex space-x-4 mb-2 mt-6 md:mt-9">
-                <a class="hover:bg-violet-800 bg-violet-700 button p-3 rounded-[10px] flex items-center"
-                    href="https://github.com/BaraAlOmari">
+                <a class="hover:bg-violet-800 bg-violet-700 button p-3 rounded-full flex items-center transition-all"
+                    href="https://github.com/BaraAlOmari" style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486);">
                     <i class="fab fa-github text-xl md:text-2xl m-1"></i>
                 </a>
-                <a class="hover:bg-violet-800 bg-violet-700 button p-3 rounded-[10px] flex items-center"
-                    href="https://www.linkedin.com/in/bara-al-omari-128826374/">
+                <a class="hover:bg-violet-800 bg-violet-700 button p-3 rounded-full flex items-center transition-all"
+                    href="https://www.linkedin.com/in/bara-al-omari-128826374/"
+                    style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486);">
                     <i class="fab fa-linkedin text-xl md:text-2xl m-1"></i>
                 </a>
-                <a class="hover:bg-violet-700/30 bg-violet-950/75 button p-3 rounded-[10px] outline-2 outline-violet-700 text-gray-100 text-sm md:text-base flex items-center font-semibold"
-                    href="">
+                <a class="hover:bg-violet-700/30 bg-violet-950/75 button p-3 rounded-full outline-2 outline-violet-700 text-gray-100 text-sm md:text-base flex items-center font-semibold transition-all"
+                    href="" style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486);">
                     My Resume
                 </a>
             </div>
@@ -178,7 +178,7 @@
                             <i class="text-violet-400 text-xl fa-solid fa-laptop-code"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-semibold">Software & Web Development</h3>
+                            <h3 class="text-xl font-semibold whitespace-nowrap mt-2">Software & Web Development</h3>
                         </div>
                     </li>
                     <li class="flex items-start gap-4 group relative">
@@ -301,7 +301,7 @@
                 <div class="hidden md:block flex-grow h-1 bg-violet-700 rounded-full ml-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
+                <div class="group bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
                     <div class="bg-violet-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                         <i class="fa-solid fa-chalkboard-teacher text-violet-400 text-xl"></i>
                     </div>
@@ -314,9 +314,29 @@
                         <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Node.js</span>
                         <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">MongoDB</span>
                     </div>
+                    <div
+                        class="hidden md:block pointer-events-none absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-164 p-4 bg-stone-900 rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                        <img src="assets/images/P01.png" alt="Preview Image" class="w-full h-auto rounded mb-2">
+                        <div class="flex flex-wrap gap-2 mb-2 mt-2">
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Layered Architecture</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Node.js</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Express.js</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Handlebars</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">MongoDB</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">CoreUI</span>
+                        </div>
+                        <p class="text-sm"> Web-based Course Management System designed to handle and
+                            streamline academic requests made by students to the Head of Department (HoD). The system
+                            reduces the need for physical visits and organizes requests into queues for better
+                            efficiency.
+                        </p>
+                        <a class="text-sm text-violet-400 py-4" href="https://github.com/yourusername/your-repo"><i
+                                class="fas fa-code-branch"></i> GitHub Repository</a>
+                    </div>
                 </div>
 
-                <div class="bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
+                <div class="group bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
                     <div class="bg-violet-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-book text-violet-400 text-xl"></i>
                     </div>
@@ -326,10 +346,32 @@
                         <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Java</span>
                         <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">JavaFX</span>
                         <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">MySQL</span>
+                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">OWASP</span>
+                    </div>
+                    <div
+                        class="hidden md:block pointer-events-none absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-164 p-4 bg-stone-900 rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                        <img src="assets/images/P02.png" alt="Preview Image" class="w-full h-auto rounded mb-2">
+                        <div class="flex flex-wrap gap-2 mb-2 mt-2">
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Java</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">JavaFX</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">MySQL</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">STRID</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">DREAD</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">OWASP</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">SSDLC</span>
+                        </div>
+                        <p class="text-sm"> The Library Management System is a desktop-based application for librarians
+                            to manage library operations efficiently. It includes book checkouts, returns, cataloging,
+                            member management, due date tracking, fines for late returns, and a search functionality for
+                            finding books, while implementing security measures against potential threats to prevent
+                            unauthorized access and potential abuse.
+                        </p>
+                        <a class="text-sm text-violet-400" href="https://github.com/infs3203/w25s4p7"><i
+                                class="fas fa-code-branch"></i> GitHub Repository</a>
                     </div>
                 </div>
 
-                <div class="bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
+                <div class="group bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
                     <div class="bg-violet-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
                         <i class="fa-solid fa-graduation-cap text-violet-400 text-xl"></i>
                     </div>
@@ -342,10 +384,30 @@
                         <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Bootstrap</span>
                         <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">OpenAI API</span>
                     </div>
+                    <div
+                        class="hidden md:block pointer-events-none absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-164 p-4 bg-stone-900 rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                        <img src="assets/images/P03.png" alt="Preview Image" class="w-full h-auto rounded mb-2">
+                        <div class="flex flex-wrap gap-2 mb-2 mt-2">
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Flask</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Bootstrap</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">OpenAI API</span>
+                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                        <p class="text-sm"> Flask Web application enables users to create and manage a library of
+                            multiple-choice questions, it provides AI-generated quizes and manual input. The system also
+                            allows for seamless editing and management of questions. Additionally, the application
+                            provides an interactive self-assessment feature where users can take quizzes based on their
+                            question libraries and receive computed scores, helping them evaluate their knowledge and
+                            progress over time.
+                        </p>
+                        <a class="text-sm text-violet-400" href="https://github.com/infs3203/w25s4p7"><i
+                                class="fas fa-code-branch"></i> GitHub Repository</a>
+                    </div>
                 </div>
 
                 <div class="p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
-                    <a class="text-violet-100/80 text-xl" href="projects.html">View More...</a>
+                    <a class="text-violet-100/80 text-xl" href="https://github.com/BaraAlOmari">View More...</a>
                 </div>
             </div>
         </section>
@@ -398,11 +460,12 @@
                 Interested in working together or have questions about my work? Feel free to reach out!
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="mailto:baraalomari16@gmail.com"
+                <a href="mailto:baraalomari16@gmail.com" style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486);"
                     class="bg-violet-700 hover:bg-violet-600 text-white px-6 py-3 rounded-lg transition-all flex items-center justify-center gap-2">
                     <i class="fas fa-envelope"></i> Email Me
                 </a>
                 <a href="https://www.linkedin.com/in/bara-al-omari-128826374/"
+                    style="box-shadow: 0px 3px 15px rgba(114, 114, 114, 0.350);"
                     class="bg-stone-700 hover:bg-stone-600 text-white px-6 py-3 rounded-lg transition-all flex items-center justify-center gap-2">
                     <i class="fab fa-linkedin-in"></i> LinkedIn
                 </a>
@@ -411,8 +474,8 @@
     </main>
 
     <button id="backToTop"
-        class="opacity-0 pointer-events-none fixed bottom-6 right-6 bg-violet-700 hover:bg-violet-600 text-white p-3 rounded-full shadow-lg transition-opacity duration-500 ease-in-out z-20">
-        <i class="fas fa-chevron-up"></i>
+        class="pointer-events-none fixed bottom-6 right-6 backdrop-blur-xl hover:bg-violet-100/30 text-white p-4 rounded-full shadow-2xl transition-opacity duration-500 ease-in-out z-20">
+        <i class="fas fa-chevron-up md:text-2xl pt-1 pr-1 pl-1"></i>
     </button>
 
     <footer class="mt-8 text-violet-400/75">
