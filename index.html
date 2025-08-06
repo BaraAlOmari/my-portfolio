@@ -11,6 +11,7 @@
     <style>
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         .animated-gradient {
@@ -18,6 +19,21 @@
             background-size: 400% 400%;
             animation: gradientBG 4s ease infinite;
         }
+
+        .animated-gradient-light {
+            background: linear-gradient(-45deg, #C5A3FF, #FDF0F0, #FFFFFF, #C5A3FF);
+            background-size: 400% 400%;
+            animation: gradientBG 4s ease infinite;
+        }
+
+        #theme-icon {
+            transition: transform 0.5s ease, color 0.5s ease;
+        }
+
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+
 
         @keyframes gradientBG {
             0% {
@@ -44,9 +60,7 @@
             background-repeat: repeat;
             background-position: 0 0;
             z-index: -1;
-            /* Behind content */
             pointer-events: none;
-            /* So they don't block clicks */
         }
 
         .stars {
@@ -78,30 +92,46 @@
         }
     </style>
 </head>
-
-<div class="stars1 order-1"></div>
+  <!-- Stars bg -->
+<div class="stars order-1"></div>
 <div class="stars2 order-1"></div>
 <div class="stars3 order-1"></div>
 
-<body id="header" class="animated-gradient bg-stone-900 text-white p-4 md:p-6 font-poppins">
+<body id="header" class="animated-gradient bg-stone-900 text-black dark:text-white p-4 md:p-6 font-poppins">
     <!-- Header -->
     <header style="z-index: 2;" id="navbar"
-        class="sticky top-5 mt-8 mb-8 md:mr-25 md:ml-25 flex flex-col md:flex-row md:grid-cols-3 items-center justify-between">
-        <h1 class="text-xl md:text-2xl font-bold mb-4 md:mb-0 text-white/75 whitespace-nowrap">Bara'Codes | <span
-                class="text-violet-300 ">Developer Portfolio</span></h1>
+        class="sticky top-5 mt-8 mb-8 md:mr-25 md:ml-25 flex flex-col md:flex-row md:grid-cols-3 items-center justify-between md:min-w-[600px]">
+        <h1 class="text-xl md:text-2xl font-bold mb-4 md:mb-0 text-black dark:text-white/75 whitespace-nowrap">
+            Bara'Codes | <span class="text-violet-400 dark:text-violet-300">Developer Portfolio</span></h1>
         <nav>
             <ul class="flex flex-wrap justify-center gap-2 md:gap-0 md:space-x-1">
-                <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#about">About</a></li>
-                <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#skills">Skills</a></li>
-                <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#projects">Projects</a>
+                <li
+                    class="hover:text-violet-600/75 dark:hover:text-violet-400/75 hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl transition-colors duration-500">
+                    <a href="#about">About</a>
                 </li>
-                <li class="hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl"><a href="#contact">Contact</a></li>
+                <li
+                    class="hover:text-violet-600/75 dark:hover:text-violet-400/75 hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl transition-colors duration-500">
+                    <a href="#skills">Skills</a>
+                </li>
+                <li
+                    class="hover:text-violet-600/75 dark:hover:text-violet-400/75 hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl transition-colors duration-500">
+                    <a href="#projects">Projects</a>
+                </li>
+                <li
+                    class="hover:text-violet-600/75 dark:hover:text-violet-400/75 hover:text-violet-400/75 px-4 md:pl-8 text-lg md:text-xl transition-colors duration-500">
+                    <a href="#contact">Contact</a>
+                </li>
+                <button id="theme-toggle"
+                    class="flex justify-center items-center px-4 md:pl-8 md:pr-8 text-lg md:text-xl">
+                    <i id="theme-icon" class="fas fa-moon text-xl md:text-2xl md:ml-3 lg:text-3xl"></i>
+                </button>
+
             </ul>
         </nav>
     </header>
 
     <!-- Welcome Section -->
-    <div class="md:mr-10 md:ml-25 flex flex-col md:flex-row items-center gap-6 md:gap-10 ">
+    <div class="md:mr-10 md:ml-25 flex flex-col md:flex-row items-center gap-6 md:gap-10">
         <div class="flex flex-col flex-1 order-2 md:order-1 md:min-w-[450px]">
             <div class="flex space-x-4">
                 <p class="text-3xl md:text-4xl font-bold">Hello <span class="text-violet-700">.</span></p>
@@ -115,16 +145,16 @@
             </div>
             <!-- Social Links -->
             <div class="flex space-x-4 mb-2 mt-6 md:mt-9">
-                <a class="hover:bg-violet-800 bg-violet-700 button p-3 rounded-full flex items-center transition-all"
+                <a class="hover:bg-violet-500 dark:hover:bg-violet-800 bg-violet-400 dark:bg-violet-700 button p-3 rounded-full flex items-center transition-all duration-500"
                     href="https://github.com/BaraAlOmari" style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486);">
                     <i class="fab fa-github text-xl md:text-2xl m-1"></i>
                 </a>
-                <a class="hover:bg-violet-800 bg-violet-700 button p-3 rounded-full flex items-center transition-all"
+                <a class="hover:bg-violet-500 dark:hover:bg-violet-800 bg-violet-400 dark:bg-violet-700 button p-3 rounded-full flex items-center transition-all duration-500"
                     href="https://www.linkedin.com/in/bara-al-omari-128826374/"
                     style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486);">
                     <i class="fab fa-linkedin text-xl md:text-2xl m-1"></i>
                 </a>
-                <a class="hover:bg-violet-700/30 bg-violet-950/75 button p-3 rounded-full outline-2 outline-violet-700 text-gray-100 text-sm md:text-base flex items-center font-semibold transition-all"
+                <a class="hover:bg-violet-700/30 bg-violet-300/75 dark:bg-violet-950/75 button p-3 rounded-full outline-2 outline-violet-400 dark:outline-violet-700 text-gray-700 dark:text-gray-100 text-sm md:text-base flex items-center font-semibold transition-all duration-500"
                     href="" style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486);">
                     My Resume
                 </a>
@@ -132,7 +162,7 @@
         </div>
         <!-- Header Images -->
         <div class="order-1 md:order-2 flex justify-center w-full md:w-auto">
-            <img class="hidden md:block w-90 h-auto object-contain md:mr-30" src="assets/images/header_img.png"
+            <img class="hidden lg:block w-90 h-auto object-contain md:mr-30" src="assets/images/header_img.png"
                 alt="Header image">
         </div>
         <div class="order-2 md:order-1 flex justify-center w-full md:w-auto -mb-1" style="z-index: 1;">
@@ -142,23 +172,23 @@
 
     <!-- Header Tech Skill Icons -->
     <div
-        class="bg-violet-500/10 backdrop-blur-sm p-6 md:p-10 -ml-4 -mr-4 md:-ml-6 md:-mr-6 shadow-[0_-80px_115px_rgba(112,8,231,0.45)] overflow-x-auto md:min-w-[1100px]">
+        class="bg-violet-800/15 dark:bg-violet-500/10 backdrop-blur-sm p-6 md:p-10 -ml-4 -mr-4 md:-ml-6 md:-mr-6 shadow-[0_-80px_115px_rgba(112,8,231,0.45)] overflow-x-auto md:min-w-[1380px]">
         <div class="flex justify-center min-w-max space-x-8 md:space-x-15">
-            <i class="text-violet-400/50 fab fa-html5 text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fab fa-css3 text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fab fa-js text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fab fa-react text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fa-brands fa-node text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fab fa-java text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fab fa-python text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fa-brands fa-git-alt text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fab fa-docker text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fab fa-figma text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fa-solid fa-shield-halved text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fa-solid fa-cloud text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fa-brands fa-linux text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fa-brands fa-bootstrap text-2xl md:text-3xl"></i>
-            <i class="text-violet-400/50 fa-solid fa-database text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fab fa-html5 text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fab fa-css3 text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fab fa-js text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fab fa-react text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fa-brands fa-node text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fab fa-java text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fab fa-python text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fa-brands fa-git-alt text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fab fa-docker text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fab fa-figma text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fa-solid fa-shield-halved text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fa-solid fa-cloud text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fa-brands fa-linux text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fa-brands fa-bootstrap text-2xl md:text-3xl"></i>
+            <i class="text-violet-500/50 dark:text-violet-400/50 fa-solid fa-database text-2xl md:text-3xl"></i>
         </div>
     </div>
 
@@ -168,23 +198,23 @@
 
             <!-- Services Section -->
             <div
-                class="hidden md:block absolute left-[calc(3.6%+24px)] top-0 bottom-0 w-1 h-85 bg-violet-700 rounded-full">
+                class="hidden md:block absolute left-[calc(3.6%+24px)] top-0 bottom-0 w-1 h-91 bg-violet-700 rounded-full">
             </div>
             <section id="services" class="md:col-span-1 relative">
                 <ul class="space-y-6 md:space-y-13 justify-center">
                     <li class="flex items-start gap-4 group relative">
                         <div
-                            class="bg-violet-950 w-12 h-12 flex items-center justify-center rounded-lg transition-all flex-shrink-0">
-                            <i class="text-violet-400 text-xl fa-solid fa-laptop-code"></i>
+                            class="bg-violet-400 dark:bg-violet-950 w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-500 flex-shrink-0">
+                            <i class="text-violet-900 dark:text-violet-400 text-xl fa-solid fa-laptop-code"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-semibold whitespace-nowrap mt-2">Software & Web Development</h3>
+                            <h3 class="text-xl font-semibold mt-2">Software & Web Development</h3>
                         </div>
                     </li>
                     <li class="flex items-start gap-4 group relative">
                         <div
-                            class="bg-violet-950 w-12 h-12 flex items-center justify-center rounded-lg transition-all flex-shrink-0">
-                            <i class="text-violet-400 text-xl fab fa-figma"></i>
+                            class="bg-violet-400 dark:bg-violet-950 w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-500 flex-shrink-0">
+                            <i class="text-violet-900 dark:text-violet-400 text-xl fab fa-figma"></i>
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold mt-2">UI/UX Design</h3>
@@ -192,8 +222,8 @@
                     </li>
                     <li class="flex items-start gap-4 group relative">
                         <div
-                            class="bg-violet-950 w-12 h-12 flex items-center justify-center rounded-lg transition-all flex-shrink-0">
-                            <i class="text-violet-400 text-xl fa-solid fa-cloud"></i>
+                            class="bg-violet-400 dark:bg-violet-950 w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-500 flex-shrink-0">
+                            <i class="text-violet-900 dark:text-violet-400 text-xl fa-solid fa-cloud"></i>
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold mt-2">Cloud & DevOps</h3>
@@ -201,8 +231,8 @@
                     </li>
                     <li class="flex items-start gap-4 group relative">
                         <div
-                            class="bg-violet-950 w-12 h-12 flex items-center justify-center rounded-lg transition-all flex-shrink-0">
-                            <i class="text-violet-400 text-xl fa-solid fa-brain"></i>
+                            class="bg-violet-400 dark:bg-violet-950 w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-500 flex-shrink-0">
+                            <i class="text-violet-900 dark:text-violet-400 text-xl fa-solid fa-brain"></i>
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold mt-2">AI & Machine Learning</h3>
@@ -212,18 +242,20 @@
             </section>
 
             <!-- About Me Section -->
-            <section id="about" class="md:col-span-2 bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm">
+            <section id="about"
+                class="md:col-span-2 bg-stone-300/50 dark:bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm transition-all duration-500">
                 <div class="flex items-center justify-center mb-6">
                     <i class="text-violet-400 text-2xl fa-solid fa-user p-4"></i>
-                    <h2 class="text-3xl md:text-4xl font-bold text-violet-300 whitespace-nowrap">About Me</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-violet-400 dark:text-violet-300 whitespace-nowrap">
+                        About Me</h2>
                     <div class="hidden md:block flex-grow h-1 bg-violet-700 rounded-full ml-4"></div>
                 </div>
-                <p class="text-lg leading-relaxed text-violet-100">
+                <p class="text-lg leading-relaxed text-stone-700 dark:text-violet-100">
                     Highly motivated and detail-oriented Information Systems graduate with strong problem-solving,
                     communication, and leadership abilities. Proficient in modern software development languages and
                     tools, with hands-on experience in web, desktop, and mobile app technologies.
                 </p>
-                <p class="text-lg leading-relaxed text-violet-100 mt-4">
+                <p class="text-lg leading-relaxed text-stone-700 dark:text-violet-100 mt-4">
                     Equipped with foundational and advanced knowledge in cybersecurity, networking, API, DevOps, UI/UX
                     and
                     systems analysis, design and deployment. Adept at delivering high-quality software solutions
@@ -238,54 +270,55 @@
             <div class="flex items-center justify-center mb-8">
                 <div class="hidden md:block flex-grow h-1 bg-violet-700 rounded-full mr-4"></div>
                 <i class="text-violet-400 text-2xl fa-solid fa-gear p-4 -ml-4"></i>
-                <h2 class="text-3xl font-bold text-violet-300 whitespace-nowrap">Technical Skills</h2>
+                <h2 class="text-3xl font-bold text-violet-400 dark:text-violet-300 whitespace-nowrap">Technical Skills
+                </h2>
                 <div class="hidden md:block flex-grow h-1 bg-violet-700 rounded-full ml-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm">
-                    <h3 class="text-xl font-semibold mb-4 text-violet-200 flex items-center gap-2">
+                <div class="bg-stone-300/50 dark:bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm transition-all duration-500">
+                    <h3 class="text-xl font-semibold mb-4 text-violet-400 dark:text-violet-200 flex items-center gap-2">
                         <i class="fas fa-code text-violet-400"></i> Programming
                     </h3>
                     <ul class="space-y-2">
                         <li class="flex items-center gap-2">
                             <div class="w-2 h-2 rounded-full bg-violet-500"></div>
-                            <span>Java, Python, JavaScript, C#</span>
+                            <span class="text-stone-700 dark:text-violet-100">Java, Python, JavaScript, C#</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <div class="w-2 h-2 rounded-full bg-violet-500"></div>
-                            <span>HTML5, CSS3, Node.js, React</span>
+                            <span class="text-stone-700 dark:text-violet-100">HTML5, CSS3, Node.js, React</span>
                         </li>
                     </ul>
                 </div>
 
-                <div class="bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm">
-                    <h3 class="text-xl font-semibold mb-4 text-violet-200 flex items-center gap-2">
+                <div class="bg-stone-300/50 dark:bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm transition-all duration-500">
+                    <h3 class="text-xl font-semibold mb-4 text-violet-400 dark:text-violet-200 flex items-center gap-2">
                         <i class="fas fa-database text-violet-400"></i> Data & Cloud
                     </h3>
                     <ul class="space-y-2">
                         <li class="flex items-center gap-2">
                             <div class="w-2 h-2 rounded-full bg-violet-500"></div>
-                            <span>MySQL, MongoDB</span>
+                            <span class="text-stone-700 dark:text-violet-100">MySQL, MongoDB</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <div class="w-2 h-2 rounded-full bg-violet-500"></div>
-                            <span>Azure, Oracle, Docker</span>
+                            <span class="text-stone-700 dark:text-violet-100">Azure, Oracle, Docker</span>
                         </li>
                     </ul>
                 </div>
 
-                <div class="bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm">
-                    <h3 class="text-xl font-semibold mb-4 text-violet-200 flex items-center gap-2">
+                <div class="bg-stone-300/50 dark:bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm transition-all duration-500">
+                    <h3 class="text-xl font-semibold mb-4 text-violet-400 dark:text-violet-200 flex items-center gap-2">
                         <i class="fas fa-paint-brush text-violet-400"></i> Design & Tools
                     </h3>
                     <ul class="space-y-2">
                         <li class="flex items-center gap-2">
                             <div class="w-2 h-2 rounded-full bg-violet-500"></div>
-                            <span>Figma, Notion, Maze, Github</span>
+                            <span class="text-stone-700 dark:text-violet-100">Figma, Notion, Maze, Github</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <div class="w-2 h-2 rounded-full bg-violet-500"></div>
-                            <span>DevOps, CI/CD, Agile Methodologies</span>
+                            <span class="text-stone-700 dark:text-violet-100">DevOps, CI/CD, Agile Methodologies</span>
                         </li>
                     </ul>
                 </div>
@@ -297,68 +330,82 @@
             <div class="flex items-center justify-center mb-8">
                 <div class="hidden md:block flex-grow h-1 bg-violet-700 rounded-full mr-4"></div>
                 <i class="text-violet-400 text-2xl fa-solid fa-star p-4 -ml-4"></i>
-                <h2 class="text-3xl font-bold text-violet-300 whitespace-nowrap">Featured Projects</h2>
+                <h2 class="text-3xl font-bold text-violet-400 dark:text-violet-300 whitespace-nowrap">Featured Projects
+                </h2>
                 <div class="hidden md:block flex-grow h-1 bg-violet-700 rounded-full ml-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="group bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
+                <div
+                    class="group bg-stone-300/50 dark:bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-400/70 dark:hover:bg-stone-800/70 transition-all duration-500">
                     <div class="bg-violet-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-chalkboard-teacher text-violet-400 text-xl"></i>
+                        <i class="fa-solid fa-chalkboard-teacher text-violet-900 dark:text-violet-400 text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2 text-violet-200">University Course Management Platform</h3>
-                    <p class="text-violet-100/80 mb-4">Full-stack course management solution with Node.js and Express.js
+                    <h3 class="text-xl font-semibold mb-2 text-violet-400 dark:text-violet-200">University Course
+                        Management Platform</h3>
+                    <p class="text-stone-700 dark:text-violet-100/80 mb-4">Full-stack course management solution with
+                        Node.js and Express.js
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Express.js</span>
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Handlebars</span>
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Node.js</span>
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">MongoDB</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Express.js</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Handlebars</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Node.js</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">MongoDB</span>
                     </div>
                     <div
-                        class="hidden md:block pointer-events-none absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-164 p-4 bg-stone-900 rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                        class="hidden md:block pointer-events-none absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-164 p-4 bg-stone-300 dark:bg-stone-900 rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all z-50">
                         <img src="assets/images/P01.png" alt="Preview Image" class="w-full h-auto rounded mb-2">
                         <div class="flex flex-wrap gap-2 mb-2 mt-2">
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">JavaScript</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Layered Architecture</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Node.js</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Express.js</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Handlebars</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">MongoDB</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">CoreUI</span>
+                            <span
+                                class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Layered
+                                Architecture</span>
+                            <span
+                                class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Node.js</span>
+                            <span
+                                class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Express.js</span>
+                            <span
+                                class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Handlebars</span>
+                            <span
+                                class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">MongoDB</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">CoreUI</span>
                         </div>
                         <p class="text-sm"> Web-based Course Management System designed to handle and
                             streamline academic requests made by students to the Head of Department (HoD). The system
                             reduces the need for physical visits and organizes requests into queues for better
                             efficiency.
                         </p>
-                        <a class="text-sm text-violet-400 py-4" href="https://github.com/Abdullha-Aburashed/winter2025__project"><i
+                        <a class="text-sm text-violet-500 dark:text-violet-400 py-4"
+                            href="https://github.com/Abdullha-Aburashed/winter2025__project"><i
                                 class="fas fa-code-branch"></i> GitHub Repository</a>
                     </div>
                 </div>
 
-                <div class="group bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
+                <div
+                    class="group bg-stone-300/50 dark:bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-400/70 dark:hover:bg-stone-800/70 transition-all duration-500">
                     <div class="bg-violet-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-book text-violet-400 text-xl"></i>
+                        <i class="fas fa-book text-violet-900 dark:text-violet-400 text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2 text-violet-200">Library Management Desktop System</h3>
-                    <p class="text-violet-100/80 mb-4">Secure desktop application built with JavaFX</p>
+                    <h3 class="text-xl font-semibold mb-2 text-violet-400 dark:text-violet-200">Library Management
+                        Desktop System</h3>
+                    <p class="text-stone-700 dark:text-violet-100/80 mb-4">Secure desktop application built with JavaFX
+                    </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Java</span>
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">JavaFX</span>
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">MySQL</span>
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">OWASP</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Java</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">JavaFX</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">MySQL</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">OWASP</span>
                     </div>
                     <div
-                        class="hidden md:block pointer-events-none absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-164 p-4 bg-stone-900 rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                        class="hidden md:block pointer-events-none absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-164 p-4 bg-stone-300 dark:bg-stone-900 rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
                         <img src="assets/images/P02.png" alt="Preview Image" class="w-full h-auto rounded mb-2">
                         <div class="flex flex-wrap gap-2 mb-2 mt-2">
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Java</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">JavaFX</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">MySQL</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">STRID</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">DREAD</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">OWASP</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">SSDLC</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Java</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">JavaFX</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">MySQL</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">STRID</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">DREAD</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">OWASP</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">SSDLC</span>
                         </div>
                         <p class="text-sm"> The Library Management System is a desktop-based application for librarians
                             to manage library operations efficiently. It includes book checkouts, returns, cataloging,
@@ -366,33 +413,40 @@
                             finding books, while implementing security measures against potential threats to prevent
                             unauthorized access and potential abuse.
                         </p>
-                        <a class="text-sm text-violet-400" href="https://github.com/3bdop/Library-Management-System"><i
-                                class="fas fa-code-branch"></i> GitHub Repository</a>
+                        <a class="text-sm text-violet-500 dark:text-violet-400"
+                            href="https://github.com/3bdop/Library-Management-System"><i class="fas fa-code-branch"></i>
+                            GitHub Repository</a>
                     </div>
                 </div>
 
-                <div class="group bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
+                <div
+                    class="group bg-stone-300/50 dark:bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-400/70 dark:hover:bg-stone-800/70 transition-all duration-500">
                     <div class="bg-violet-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-graduation-cap text-violet-400 text-xl"></i>
+                        <i class="fa-solid fa-graduation-cap text-violet-900 dark:text-violet-400 text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2 text-violet-200">Student Self-Assessment Web Application</h3>
-                    <p class="text-violet-100/80 mb-4">Web application for students to assess their learning & create
+                    <h3 class="text-xl font-semibold mb-2 text-violet-400 dark:text-violet-200">Student Self-Assessment
+                        Web Application</h3>
+                    <p class="text-stone-700 dark:text-violet-100/80 mb-4">Web application for students to assess their
+                        learning & create
                         quizzes using AI</p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Python</span>
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Flask</span>
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Bootstrap</span>
-                        <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">OpenAI API</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Python</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Flask</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Bootstrap</span>
+                        <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">OpenAI API</span>
                     </div>
                     <div
-                        class="hidden md:block pointer-events-none absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-164 p-4 bg-stone-900 rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                        class="hidden md:block pointer-events-none absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 w-164 p-4 bg-stone-300 dark:bg-stone-900 rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto transition-all duration-300 z-50">
                         <img src="assets/images/P03.png" alt="Preview Image" class="w-full h-auto rounded mb-2">
                         <div class="flex flex-wrap gap-2 mb-2 mt-2">
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Python</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Flask</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">Bootstrap</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">OpenAI API</span>
-                            <span class="text-xs bg-violet-900/50 px-2 py-1 rounded">MongoDB</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Flask</span>
+                            <span
+                                class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">Bootstrap</span>
+                            <span class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">OpenAI
+                                API</span>
+                            <span
+                                class="text-xs bg-violet-400/50 dark:bg-violet-900/50 px-2 py-1 rounded">MongoDB</span>
                         </div>
                         <p class="text-sm"> Flask Web application enables users to create and manage a library of
                             multiple-choice questions, it provides AI-generated quizes and manual input. The system also
@@ -401,60 +455,81 @@
                             question libraries and receive computed scores, helping them evaluate their knowledge and
                             progress over time.
                         </p>
-                        <a class="text-sm text-violet-400" href="https://github.com/infs3203/w25s4p7"><i
-                                class="fas fa-code-branch"></i> GitHub Repository</a>
+                        <a class="text-sm text-violet-500 dark:text-violet-400"
+                            href="https://github.com/infs3203/w25s4p7"><i class="fas fa-code-branch"></i> GitHub
+                            Repository</a>
                     </div>
                 </div>
 
-                <div class="p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
-                    <a class="text-violet-100/80 text-xl" href="https://github.com/BaraAlOmari">View More...</a>
+                <div
+                    class="p-6 rounded-xl backdrop-blur-sm hover:bg-stone-400/70 dark:hover:bg-stone-800/70 transition-all duration-500">
+                    <a class="text-violet-400/80 dark:text-violet-100/80 text-xl"
+                        href="https://github.com/BaraAlOmari">View More...</a>
                 </div>
             </div>
         </section>
+
+          <!-- Certifications Section -->
         <section id="skills" class="mt-16">
             <div class="flex items-center justify-center mb-8">
                 <div class="hidden md:block flex-grow h-1 bg-violet-700 rounded-full mr-4"></div>
                 <i class="text-violet-400 text-2xl fa-solid fa-certificate p-4 -ml-4"></i>
-                <h2 class="text-3xl font-bold text-violet-300 whitespace-nowrap">Certifications</h2>
+                <h2 class="text-3xl font-bold text-violet-400 dark:text-violet-300 whitespace-nowrap">Certifications
+                </h2>
                 <div class="hidden md:block flex-grow h-1 bg-violet-700 rounded-full ml-4"></div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
-                    <h3 class="text-xl font-semibold mb-2 text-violet-200">
-                        Oracle Cloud Infrastructure Foundations Associate</h3>
-                    <p class="text-violet-100/80 mb-4">Oracle - July 2025</p>
-                    <div class="flex items-center justify-center mb-1 ml-50 -mr-6 md:mb-4 md:ml-85">
-                        <img src="assets/images/OCI25FNDCFA.png" alt="Oracle Cloud Infrastructure Foundations Associate"
-                            class="w-30 h-15 md:w-50 md:h-25">
+            <div class="grid md:grid-cols-2 lg:grid-cols-1 gap-4">
+                <div
+                    class="bg-stone-300/50 dark:bg-stone-800/50 p-6 md:min-h-50 rounded-xl backdrop-blur-sm hover:bg-stone-400/70 dark:hover:bg-stone-800/70 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2 text-violet-400 dark:text-violet-200">
+                                Oracle Cloud Infrastructure Foundations Associate
+                            </h3>
+                            <p class="md:text-xl text-violet-400/80 dark:text-violet-100/80 mb-4">Oracle - July 2025</p>
+                        </div>
+                        <div class="flex-shrink-0 w-35 h-20 md:w-35 md:h-24 lg:w-60 lg:h-28">
+                            <img src="assets/images/OCI25FNDCFA.png"
+                                alt="Oracle Cloud Infrastructure Foundations Associate Badge"
+                                class="w-full h-full object-contain md:mt-5">
+                        </div>
                     </div>
                 </div>
-                <div class="bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
-                    <h3 class="text-xl font-semibold mb-2 text-violet-200">
-                        AWS Cloud Computing 101</h3>
-                    <p class="text-violet-100/80 mb-4">AWS - July 2025</p>
-                    <div class="flex items-center justify-center mb-1 ml-50 -mr-6 md:mb-4 md:ml-85">
-                        <img src="assets/images/aws.png" alt="AWS Cloud Computing 101"
-                            class="w-30 h-35 md:w-20 md:h-30">
+
+                <div
+                    class="bg-stone-300/50 dark:bg-stone-800/50 p-6 md:min-h-50 rounded-xl backdrop-blur-sm hover:bg-stone-400/70 dark:hover:bg-stone-800/70 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2 text-violet-400 dark:text-violet-200">
+                                Network Security Fundamentals
+                            </h3>
+                            <p class="md:text-xl text-violet-400/80 dark:text-violet-100/80 mb-4">Palo Alto Networks -
+                                Apr 2024</p>
+                        </div>
+                        <div class="flex-shrink-0 w-35 h-20 md:w-35 md:h-24 lg:w-60 lg:h-28">
+                            <img src="assets/images/blob.png" alt="Network Security Fundamentals Badge"
+                                class="w-full h-full object-contain md:mt-5">
+                        </div>
                     </div>
                 </div>
-                <div class="bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
-                    <h3 class="text-xl font-semibold mb-2 text-violet-200">Network Security Fundamentals</h3>
-                    <p class="text-violet-100/80 mb-4">Palo Alto Networks - Apr 2024</p>
-                    <div class="flex items-center justify-center ml-60 -mt-8 md:ml-85 -mt-15">
-                        <img src="assets/images/blob.png" alt="Cybersecurity Foundation"
-                            class="w-15 h-15 md:w-30 md:h-30">
-                    </div>
-                </div>
-                <div class="bg-stone-800/50 p-6 rounded-xl backdrop-blur-sm hover:bg-stone-800/70 transition-all">
-                    <h3 class="text-xl font-semibold mb-2 text-violet-200">Cybersecurity Foundation</h3>
-                    <p class="text-violet-100/80 mb-4">Palo Alto Networks - Feb 2024</p>
-                    <div class="flex items-center justify-center ml-60 -mt-8 md:ml-85 -mt-15">
-                        <img src="assets/images/blob.png" alt="Cybersecurity Foundation"
-                            class="w-15 h-15 md:w-30 md:h-30">
+
+                <div
+                    class="bg-stone-300/50 dark:bg-stone-800/50 p-6 md:min-h-50 rounded-xl backdrop-blur-sm hover:bg-stone-400/70 dark:hover:bg-stone-800/70 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-4">
+                        <div class="flex-1">
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2 text-violet-400 dark:text-violet-200">
+                                Cybersecurity Foundation
+                            </h3>
+                            <p class="md:text-xl text-violet-400/80 dark:text-violet-100/80 mb-4">Palo Alto Networks -
+                                Feb 2024</p>
+                        </div>
+                        <div class="flex-shrink-0 w-35 h-20 md:w-35 md:h-24 lg:w-60 lg:h-28">
+                            <img src="assets/images/blob.png" alt="Cybersecurity Foundation Badge"
+                                class="w-full h-full object-contain md:mt-5">
+                        </div>
                     </div>
                 </div>
             </div>
-
         </section>
 
         <!-- Contact Section -->
@@ -462,32 +537,34 @@
             <div class="flex items-center justify-center mb-6">
                 <div class="hidden md:block flex-grow h-1 bg-violet-700 rounded-full mr-4"></div>
                 <i class="text-violet-400 text-2xl fa-solid fa-envelope p-4 -ml-4"></i>
-                <h2 class="text-3xl font-bold text-violet-300 whitespace-nowrap">Get In Touch</h2>
+                <h2 class="text-3xl font-bold text-violet-400 dark:text-violet-300 whitespace-nowrap">Get In Touch</h2>
                 <div class="hidden md:block flex-grow h-1 bg-violet-700 rounded-full ml-4"></div>
             </div>
-            <p class="text-lg text-violet-100 max-w-2xl mx-auto mb-8">
+            <p class="text-lg text-violet-400 dark:text-violet-100 max-w-2xl mx-auto mb-8">
                 Interested in working together or have questions about my work? Feel free to reach out!
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="mailto:baraalomari16@gmail.com" style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486);"
-                    class="bg-violet-700 hover:bg-violet-600 text-white px-6 py-3 rounded-lg transition-all flex items-center justify-center gap-2">
+                    class="hover:bg-violet-500 bg-violet-400  dark:bg-violet-700 dark:hover:bg-violet-600 text-white px-6 py-3 rounded-lg transition-all flex items-center justify-center gap-2">
                     <i class="fas fa-envelope"></i> Email Me
                 </a>
                 <a href="https://www.linkedin.com/in/bara-al-omari-128826374/"
                     style="box-shadow: 0px 3px 15px rgba(114, 114, 114, 0.350);"
-                    class="bg-stone-700 hover:bg-stone-600 text-white px-6 py-3 rounded-lg transition-all flex items-center justify-center gap-2">
+                    class="bg-stone-500 hover:bg-stone-600 dark:bg-stone-700 dark:hover:bg-stone-600 text-white px-6 py-3 rounded-lg transition-all flex items-center justify-center gap-2">
                     <i class="fab fa-linkedin-in"></i> LinkedIn
                 </a>
             </div>
         </section>
     </main>
 
+    <!-- Back to Top Button -->
     <button id="backToTop"
-        class="pointer-events-none fixed bottom-6 right-6 backdrop-blur-xl hover:bg-violet-100/30 text-white p-4 rounded-full shadow-2xl transition-opacity duration-500 ease-in-out z-20">
+        class="pointer-events-none fixed bottom-6 right-6 backdrop-blur-xl hover:bg-violet-400/30 dark:hover:bg-violet-100/30 text-black dark:text-white p-4 rounded-full shadow-2xl transition-all duration-500 ease-in-out z-20">
         <i class="fas fa-chevron-up md:text-2xl pt-1 pr-1 pl-1"></i>
     </button>
 
-    <footer class="mt-8 text-violet-400/75">
+    <!-- Footer -->
+    <footer class="mt-8 text-violet-500/75 dark:text-violet-400/75">
         <p>&copy; 2025 Bara' Al Omari. All rights reserved.</p>
     </footer>
 </body>
