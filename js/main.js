@@ -22,16 +22,16 @@ backToTopBtn.addEventListener('click', () => {
 // Navbar Scroll Effect
 function updateNavbarBackground() {
     if (window.scrollY > 100) {
-        navbar.classList.add('backdrop-blur-md', 'p-12', 'rounded-3xl', 'transition-all', 'duration-500')
-        navbar.classList.remove('bg-stone-900/70', 'bg-violet-100/70')
+        navbar.classList.add('md:backdrop-blur-md', 'md:p-12', 'md:rounded-3xl', 'md:transition-all', 'md:duration-500')
+        navbar.classList.remove('md:bg-stone-900/70', 'md:bg-violet-100/70')
 
         if (currentTheme === 'dark') {
-            navbar.classList.add('bg-stone-900/70')
+            navbar.classList.add('md:bg-stone-900/70')
         } else {
-            navbar.classList.add('bg-violet-100/70')
+            navbar.classList.add('md:bg-violet-100/70')
         }
     } else {
-        navbar.classList.remove('backdrop-blur-md', 'bg-stone-900/70', 'bg-violet-100/70', 'p-12', 'rounded-3xl')
+        navbar.classList.remove('md:backdrop-blur-md', 'md:bg-stone-900/70', 'md:bg-violet-100/70', 'md:p-12', 'md:rounded-3xl')
     }
 }
 
