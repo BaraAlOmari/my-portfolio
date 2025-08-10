@@ -224,6 +224,7 @@
 
     <!-- Header Tech Skill Icons -->
     <div
+      id="about"
       class="-mr-4 -ml-4 overflow-x-auto bg-violet-800/15 p-6 shadow-[0_-80px_115px_rgba(112,8,231,0.45)] backdrop-blur-sm md:-mr-6 md:-ml-6 md:min-w-[1380px] md:p-10 dark:bg-violet-500/10"
     >
       <div class="flex min-w-max justify-center space-x-8 md:space-x-15">
@@ -341,7 +342,6 @@
 
         <!-- About Me Section -->
         <section
-          id="about"
           class="rounded-xl bg-stone-300/50 p-6 backdrop-blur-sm transition-all duration-500 md:col-span-2 dark:bg-stone-800/50"
         >
           <div class="mb-6 flex items-center justify-center">
@@ -365,6 +365,7 @@
             technologies.
           </p>
           <p
+            id="skills"
             class="mt-4 text-lg leading-relaxed text-stone-700 dark:text-violet-100"
           >
             Equipped with foundational and advanced knowledge in cybersecurity,
@@ -376,7 +377,7 @@
       </div>
 
       <!-- Skills Section -->
-      <section id="skills" class="mt-16">
+      <section class="mt-16">
         <div class="mb-8 flex items-center justify-center">
           <div
             class="mr-4 hidden h-1 flex-grow rounded-full bg-violet-700 md:block"
@@ -451,7 +452,7 @@
             <ul class="space-y-2">
               <li class="flex items-center gap-2">
                 <div class="h-2 w-2 rounded-full bg-violet-500"></div>
-                <span class="text-stone-700 dark:text-violet-100"
+                <span id="projects" class="text-stone-700 dark:text-violet-100"
                   >Figma, Notion, Maze, Github</span
                 >
               </li>
@@ -467,7 +468,7 @@
       </section>
 
       <!-- Projects Section -->
-      <section id="projects" class="mt-16">
+      <section class="mt-16">
         <div class="mb-8 flex items-center justify-center">
           <div
             class="mr-4 hidden h-1 flex-grow rounded-full bg-violet-700 md:block"
@@ -484,7 +485,7 @@
         </div>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div
-            class="group rounded-xl bg-stone-300/50 p-6 backdrop-blur-sm transition-all duration-500 md:hover:bg-stone-400/70 dark:bg-stone-800/50 md:dark:hover:bg-stone-800/70"
+            class="project-card group rounded-xl bg-stone-300/50 p-6 outline-2 outline-violet-400 backdrop-blur-sm transition-all duration-500 hover:outline-4 md:hover:bg-stone-400/70 dark:bg-stone-800/50 md:dark:hover:bg-stone-800/70"
           >
             <div
               class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-violet-900/30"
@@ -550,12 +551,13 @@
               >
             </div>
             <div
-              class="pointer-events-none absolute bottom-full left-1/2 z-50 mb-4 hidden w-164 -translate-x-1/2 scale-95 transform rounded-lg bg-stone-300 p-4 opacity-0 transition-all group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 md:block dark:bg-stone-900"
+              class="preview-popup pointer-events-none absolute bottom-full left-1/2 z-50 mb-4 hidden w-130 -translate-x-1/2 scale-95 transform rounded-lg bg-stone-300 p-4 opacity-0 transition-all group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 md:block dark:bg-stone-900"
             >
               <img
                 src="assets/images/P01.png"
                 alt="Preview Image"
-                class="mb-2 h-auto w-full rounded"
+                class="mb-2 h-auto w-full cursor-pointer rounded"
+                onclick="openLightbox(this.src)"
               />
               <div class="mt-2 mb-2 flex flex-wrap gap-2">
                 <span
@@ -602,7 +604,7 @@
           </div>
 
           <div
-            class="group rounded-xl bg-stone-300/50 p-6 backdrop-blur-sm transition-all duration-500 md:hover:bg-stone-400/70 dark:bg-stone-800/50 md:dark:hover:bg-stone-800/70"
+            class="project-card group rounded-xl bg-stone-300/50 p-6 outline-2 outline-violet-400 backdrop-blur-sm transition-all duration-500 hover:outline-4 md:hover:bg-stone-400/70 dark:bg-stone-800/50 md:dark:hover:bg-stone-800/70"
           >
             <div
               class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-violet-900/30"
@@ -671,12 +673,13 @@
               >
             </div>
             <div
-              class="pointer-events-none absolute bottom-full left-1/2 z-50 mb-4 hidden w-164 -translate-x-1/2 scale-95 transform rounded-lg bg-stone-300 p-4 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 md:block dark:bg-stone-900"
+              class="preview-popup pointer-events-none absolute bottom-full left-1/2 z-50 mb-4 hidden w-130 -translate-x-1/2 scale-95 transform rounded-lg bg-stone-300 p-4 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 md:block dark:bg-stone-900"
             >
               <img
                 src="assets/images/P02.png"
                 alt="Preview Image"
-                class="mb-2 h-auto w-full rounded"
+                class="mb-2 h-auto w-full cursor-pointer rounded"
+                onclick="openLightbox(this.src)"
               />
               <div class="mt-2 mb-2 flex flex-wrap gap-2">
                 <span
@@ -726,7 +729,7 @@
           </div>
 
           <div
-            class="group rounded-xl bg-stone-300/50 p-6 backdrop-blur-sm transition-all duration-500 md:hover:bg-stone-400/70 dark:bg-stone-800/50 md:dark:hover:bg-stone-800/70"
+            class="project-card group rounded-xl bg-stone-300/50 p-6 outline-2 outline-violet-400 backdrop-blur-sm transition-all duration-500 hover:outline-4 md:hover:bg-stone-400/70 dark:bg-stone-800/50 md:dark:hover:bg-stone-800/70"
           >
             <div
               class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-violet-900/30"
@@ -756,8 +759,8 @@
             </p>
             <a
               class="py-4 text-sm text-violet-500 md:hidden dark:text-violet-400"
-              href="https://github.com/infs3203/w25s4p7"
-              ><i class="fas fa-code-branch"></i> GitHub Repository</a
+              href="https://infs3203project-fmhpf2c5bpfwh5dg.canadacentral-01.azurewebsites.net/"
+              ><i class="fas fa-link"></i> Live Demo</a
             >
             <p
               class="mb-4 hidden text-stone-700 md:block dark:text-violet-100/80"
@@ -788,12 +791,13 @@
               >
             </div>
             <div
-              class="pointer-events-none absolute bottom-full left-1/2 z-50 mb-4 hidden w-164 -translate-x-1/2 scale-95 transform rounded-lg bg-stone-300 p-4 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 md:block dark:bg-stone-900"
+              class="preview-popup pointer-events-none absolute bottom-full left-1/2 z-50 mb-4 hidden w-130 -translate-x-1/2 scale-95 transform rounded-lg bg-stone-300 p-4 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 md:block dark:bg-stone-900"
             >
               <img
                 src="assets/images/P03.png"
                 alt="Preview Image"
-                class="mb-2 h-auto w-full rounded"
+                class="mb-2 h-auto w-full cursor-pointer rounded"
+                onclick="openLightbox(this.src)"
               />
               <div class="mt-2 mb-2 flex flex-wrap gap-2">
                 <span
@@ -829,14 +833,15 @@
               </p>
               <a
                 class="text-sm text-violet-500 dark:text-violet-400"
-                href="https://github.com/infs3203/w25s4p7"
-                ><i class="fas fa-code-branch"></i> GitHub Repository</a
+                href="https://infs3203project-fmhpf2c5bpfwh5dg.canadacentral-01.azurewebsites.net/"
+                ><i class="fas fa-link"></i> Live Demo</a
               >
             </div>
           </div>
 
           <div
             class="rounded-xl p-6 backdrop-blur-sm transition-all duration-500 hover:bg-stone-400/70 dark:hover:bg-stone-800/70"
+            style="z-index: -1"
           >
             <a
               class="text-xl text-violet-400/80 dark:text-violet-100/80"
@@ -844,6 +849,21 @@
               >View More...</a
             >
           </div>
+        </div>
+        <div
+          id="lightbox"
+          class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/80"
+        >
+          <span
+            class="absolute top-4 right-6 cursor-pointer text-3xl text-white"
+            onclick="closeLightbox()"
+            >&times;</span
+          >
+          <img
+            id="lightbox-img"
+            src=""
+            class="max-h-[80%] max-w-[80%] rounded shadow-lg"
+          />
         </div>
       </section>
 
@@ -868,6 +888,7 @@
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-1">
           <div
             class="rounded-xl bg-stone-300/50 p-6 backdrop-blur-sm transition-all duration-500 md:min-h-50 dark:bg-stone-800/50"
+            style="z-index: -1"
           >
             <div
               class="flex flex-col items-start gap-4 md:flex-row md:items-center"
@@ -898,6 +919,7 @@
 
           <div
             class="rounded-xl bg-stone-300/50 p-6 backdrop-blur-sm transition-all duration-500 md:min-h-50 dark:bg-stone-800/50"
+            style="z-index: -1"
           >
             <div
               class="flex flex-col items-start gap-4 md:flex-row md:items-center"

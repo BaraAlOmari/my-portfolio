@@ -72,3 +72,71 @@ themeToggleButton.addEventListener('click', () => {
         themeIcon.classList.remove('rotate-180')
     }, 500)
 })
+
+document.querySelectorAll('.project-card').forEach(card => {
+    const previewPopUp = card.querySelector('.preview-popup')
+
+    // Show popup when hovering card
+    card.addEventListener('mouseenter', () => {
+        previewPopUp.classList.remove('pointer-events-none', 'opacity-0', 'scale-95')
+        previewPopUp.classList.add('opacity-100', 'scale-100')
+    })
+
+    // Hide popup when leaving both card AND popup
+    let timeout
+    const hidePopup = () => {
+        timeout = setTimeout(() => {
+            previewPopUp.classList.add('pointer-events-none', 'opacity-0', 'scale-95')
+            previewPopUp.classList.remove('opacity-100', 'scale-100')
+        }, 100) // Small delay to allow cursor movement
+    }
+
+    card.addEventListener('mouseleave', hidePopup)
+    previewPopUp.addEventListener('mouseleave', hidePopup)
+
+    // Cancel hide if we enter the popup
+    previewPopUp.addEventListener('mouseenter', () => {
+        clearTimeout(timeout)
+    })
+})
+
+document.querySelectorAll(".project-card").forEach(card => {
+    const popup = card.querySelector(".preview-popup")
+
+    card.addEventListener("mouseenter", () => {
+        if (!popup) return // skip if no popup
+
+        const rect = card.getBoundingClientRect()
+        const popupHeight = popup.offsetHeight || 300 // fallback if hidden
+        const spaceAbove = rect.top
+        const spaceBelow = window.innerHeight - rect.bottom
+
+        if (spaceBelow >= popupHeight) {
+            // Enough space below -> show below
+            popup.classList.remove("bottom-full", "mb-4")
+            popup.classList.add("top-full", "mt-4")
+        } else if (spaceAbove >= popupHeight) {
+            // Enough space above -> show above
+            popup.classList.remove("top-full", "mt-4")
+            popup.classList.add("bottom-full", "mb-4")
+        } else {
+            // Not enough space either way -> pick side with more space
+            if (spaceBelow >= spaceAbove) {
+                popup.classList.remove("bottom-full", "mb-4")
+                popup.classList.add("top-full", "mt-4")
+            } else {
+                popup.classList.remove("top-full", "mt-4")
+                popup.classList.add("bottom-full", "mb-4")
+            }
+        }
+    })
+})
+
+function openLightbox(src) {
+    document.getElementById("lightbox-img").src = src
+    document.getElementById("lightbox").classList.remove("hidden")
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").classList.add("hidden")
+}
