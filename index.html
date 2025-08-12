@@ -96,6 +96,24 @@
           background-position: -10000px 5000px;
         }
       }
+
+      .carousel-slide {
+        transition: transform 0.5s ease;
+        padding-bottom: 20px;
+      }
+
+      .carousel-slide:hover {
+        transform: translateY(-5px);
+      }
+
+      #carousel-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      #carousel-track {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
   </head>
   <!-- Stars bg -->
@@ -109,7 +127,7 @@
   >
     <!-- Header -->
     <header
-      style="z-index: 2"
+      style="z-index: 15"
       id="navbar"
       class="top-5 mt-8 mb-8 flex flex-col items-center justify-between md:sticky md:mr-25 md:ml-25 md:min-w-[600px] md:grid-cols-3 md:flex-row"
     >
@@ -377,7 +395,7 @@
       </div>
 
       <!-- Skills Section -->
-      <section class="mt-16">
+      <section class="mt-21">
         <div class="mb-8 flex items-center justify-center">
           <div
             class="mr-4 hidden h-1 flex-grow rounded-full bg-violet-700 md:block"
@@ -468,8 +486,8 @@
       </section>
 
       <!-- Projects Section -->
-      <section class="mt-16">
-        <div class="mb-8 flex items-center justify-center">
+      <section class="mt-21">
+        <div class="flex items-center justify-center md:-mb-8">
           <div
             class="mr-4 hidden h-1 flex-grow rounded-full bg-violet-700 md:block"
           ></div>
@@ -483,392 +501,314 @@
             class="ml-4 hidden h-1 flex-grow rounded-full bg-violet-700 md:block"
           ></div>
         </div>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <div
-            class="project-card group rounded-xl bg-stone-300/50 p-6 outline-2 outline-violet-400 backdrop-blur-sm transition-all duration-500 hover:outline-4 md:hover:bg-stone-400/70 dark:bg-stone-800/50 md:dark:hover:bg-stone-800/70"
-          >
+
+        <!-- Enhanced Carousel Container -->
+        <div class="relative mx-auto max-w-7xl py-8">
+          <!-- Carousel Track Container -->
+          <div class="overflow-hidden">
             <div
-              class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-violet-900/30"
+              id="carousel-track"
+              class="mt-2 flex transition-transform duration-500 ease-out md:m-12"
             >
-              <i
-                class="fa-solid fa-chalkboard-teacher text-xl text-violet-900 dark:text-violet-400"
-              ></i>
-            </div>
-            <h3
-              class="mb-2 text-xl font-semibold text-violet-400 dark:text-violet-200"
-            >
-              University Course Management Platform
-            </h3>
-            <img
-              src="assets/images/P01.png"
-              alt="Preview Image"
-              class="mb-2 h-auto w-full rounded-lg md:hidden"
-            />
-            <p
-              class="mb-4 hidden text-stone-700 md:block dark:text-violet-100/80"
-            >
-              Full-stack course management solution with Node.js and Express.js
-            </p>
-            <p class="mb-2 md:hidden dark:text-violet-100/80">
-              Web-based Course Management System designed to handle and
-              streamline academic requests made by students to the Head of
-              Department (HoD). The system reduces the need for physical visits
-              and organizes requests into queues for better efficiency.
-            </p>
-            <a
-              class="py-4 text-sm text-violet-500 md:hidden dark:text-violet-400"
-              href="https://github.com/Abdullha-Aburashed/winter2025__project"
-              ><i class="fas fa-code-branch"></i> GitHub Repository</a
-            >
-            <div class="flex flex-wrap gap-2 pt-4 md:pt-0">
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >Express.js</span
+              <!-- Project 1 -->
+              <div
+                class="carousel-slide w-full flex-shrink-0 px-2 sm:w-4/5 sm:px-4 md:w-3/5 lg:w-1/2"
               >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >Handlebars</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >Node.js</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >MongoDB</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs md:hidden dark:bg-violet-900/50"
-                >MongoDB</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs md:hidden dark:bg-violet-900/50"
-                >CoreUI</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs md:hidden dark:bg-violet-900/50"
-                >Full-stack</span
-              >
-            </div>
-            <div
-              class="preview-popup pointer-events-none absolute bottom-full left-1/2 z-50 mb-4 hidden w-130 -translate-x-1/2 scale-95 transform rounded-lg bg-stone-300 p-4 opacity-0 transition-all group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 md:block dark:bg-stone-900"
-            >
-              <img
-                src="assets/images/P01.png"
-                alt="Preview Image"
-                class="mb-2 h-auto w-full cursor-pointer rounded"
-                onclick="openLightbox(this.src)"
-              />
-              <div class="mt-2 mb-2 flex flex-wrap gap-2">
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >JavaScript</span
+                <div
+                  class="flex h-full flex-col rounded-xl bg-stone-300/50 p-4 outline-violet-400/50 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:outline-3 sm:p-6 dark:bg-stone-800/50 dark:shadow-violet-500/40"
                 >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >Node.js</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >Express.js</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >Handlebars</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >MongoDB</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >CoreUI</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >Full-stack</span
-                >
+                  <h3
+                    class="mb-4 text-lg font-semibold text-violet-400 sm:text-xl md:text-2xl dark:text-violet-200"
+                  >
+                    <div
+                      class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-violet-900/30 sm:h-12 sm:w-12"
+                    >
+                      <i
+                        class="fa-solid fa-chalkboard-teacher text-lg text-violet-900 sm:text-xl dark:text-violet-400"
+                      ></i>
+                    </div>
+                    University Course Management Platform
+                  </h3>
+                  <!-- Project Image -->
+                  <img
+                    src="assets/images/P01.png"
+                    alt="University Course Management Platform"
+                    class="mb-4 aspect-video rounded-lg"
+                  />
+
+                  <!-- Tech Stack -->
+                  <div class="mb-4 flex flex-wrap gap-2">
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >JavaScript</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >Express.js</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >Node.js</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >Handlebars</span
+                    >
+
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >MongoDB</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >CoreUI</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >Full-stack</span
+                    >
+                  </div>
+
+                  <!-- Project Details -->
+                  <div class="flex-1">
+                    <p
+                      class="mb-4 text-sm text-stone-700 sm:text-base dark:text-violet-100/80"
+                    >
+                      Web-based Course Management System designed to handle and
+                      streamline academic requests made by students to the Head
+                      of Department (HoD). The system reduces the need for
+                      physical visits and organizes requests into queues for
+                      better efficiency.
+                    </p>
+                  </div>
+
+                  <!-- Project Links -->
+                  <div class="mt-auto">
+                    <a
+                      href="https://github.com/Abdullha-Aburashed/winter2025__project"
+                      class="inline-flex items-center text-sm text-violet-500 hover:underline dark:text-violet-400"
+                    >
+                      <i class="fas fa-code-branch mr-2"></i> GitHub Repository
+                    </a>
+                  </div>
+                </div>
               </div>
-              <p class="text-sm">
-                Web-based Course Management System designed to handle and
-                streamline academic requests made by students to the Head of
-                Department (HoD). The system reduces the need for physical
-                visits and organizes requests into queues for better efficiency.
-              </p>
-              <a
-                class="py-4 text-sm text-violet-500 dark:text-violet-400"
-                href="https://github.com/Abdullha-Aburashed/winter2025__project"
-                ><i class="fas fa-code-branch"></i> GitHub Repository</a
+
+              <!-- Project 2 -->
+              <div
+                class="carousel-slide w-full flex-shrink-0 px-2 sm:w-4/5 sm:px-4 md:w-3/5 lg:w-1/2"
               >
+                <div
+                  class="flex h-full flex-col rounded-xl bg-stone-300/50 p-4 outline-violet-400/50 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:outline-3 sm:p-6 dark:bg-stone-800/50 dark:shadow-violet-500/40"
+                >
+                  <h3
+                    class="mb-4 text-lg font-semibold text-violet-400 sm:text-xl md:text-2xl dark:text-violet-200"
+                  >
+                    <div
+                      class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-violet-900/30 sm:h-12 sm:w-12"
+                    >
+                      <i
+                        class="fa-solid fa-book text-lg text-violet-900 sm:text-xl dark:text-violet-400"
+                      ></i>
+                    </div>
+                    Library Management Desktop Apploication
+                  </h3>
+                  <!-- Project Image -->
+                  <img
+                    src="assets/images/P02.png"
+                    alt="Library Management Desktop Application"
+                    class="mb-4 aspect-video rounded-lg"
+                  />
+
+                  <div class="mb-4 flex flex-wrap gap-2">
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >Java</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >JavaFX</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >MySQL</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >STRID</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >DREAD</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >OWASP</span
+                    >
+                  </div>
+
+                  <div class="flex-1">
+                    <p
+                      class="mb-4 text-sm text-stone-700 sm:text-base dark:text-violet-100/80"
+                    >
+                      The Library Management System is a desktop-based
+                      application for librarians to manage library operations
+                      efficiently. It includes book checkouts, returns,
+                      cataloging, member management, due date tracking, fines
+                      for late returns, and a search functionality for finding
+                      books.
+                    </p>
+                  </div>
+
+                  <div class="mt-auto">
+                    <a
+                      href="https://github.com/3bdop/Library-Management-System"
+                      class="inline-flex items-center text-sm text-violet-500 hover:underline dark:text-violet-400"
+                    >
+                      <i class="fas fa-code-branch mr-2"></i> GitHub Repository
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project 3 -->
+              <div
+                class="carousel-slide w-full flex-shrink-0 px-2 sm:w-4/5 sm:px-4 md:w-3/5 lg:w-1/2"
+              >
+                <div
+                  class="flex h-full flex-col rounded-xl bg-stone-300/50 p-4 outline-violet-400/50 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:outline-3 sm:p-6 dark:bg-stone-800/50 dark:shadow-violet-500/40"
+                >
+                  <h3
+                    class="mb-4 text-lg font-semibold text-violet-400 sm:text-xl md:text-2xl dark:text-violet-200"
+                  >
+                    <div
+                      class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-violet-900/30 sm:h-12 sm:w-12"
+                    >
+                      <i
+                        class="fa-solid fa-graduation-cap text-lg text-violet-900 sm:text-xl dark:text-violet-400"
+                      ></i>
+                    </div>
+                    Student Self-Assessment Web Application
+                  </h3>
+                  <!-- Project Image -->
+                  <img
+                    src="assets/images/P03.png"
+                    alt="Student Self-Assessment Web Application"
+                    class="mb-4 aspect-video rounded-lg"
+                  />
+
+                  <div class="mb-4 flex flex-wrap gap-2">
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >Python</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >Flask</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >Bootstrap</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >OpenAI API</span
+                    >
+                    <span
+                      class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
+                      >MongoDB</span
+                    >
+                  </div>
+
+                  <div class="flex-1">
+                    <p
+                      class="mb-4 text-sm text-stone-700 sm:text-base dark:text-violet-100/80"
+                    >
+                      Flask Web application enables users to create and manage a
+                      library of multiple-choice questions, it provides
+                      AI-generated quizes and manual input. The system also
+                      allows for seamless editing and management of questions.
+                    </p>
+                  </div>
+
+                  <div class="mt-auto">
+                    <a
+                      href="https://infs3203project-fmhpf2c5bpfwh5dg.canadacentral-01.azurewebsites.net/"
+                      class="inline-flex items-center text-sm text-violet-500 hover:underline dark:text-violet-400"
+                    >
+                      <i class="fas fa-link mr-2"></i> Live Demo
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- View More -->
+              <div
+                class="carousel-slide w-full flex-shrink-0 px-2 sm:w-4/5 sm:px-4 md:w-3/5 lg:w-1/2"
+              >
+                <div
+                  class="flex h-full items-center justify-center rounded-xl bg-stone-300/50 p-4 outline-3 outline-violet-400/50 backdrop-blur-sm transition-all duration-300 outline-dashed hover:shadow-2xl sm:p-6 dark:bg-stone-800/50 dark:shadow-violet-500/40"
+                >
+                  <div
+                    class="flex w-full flex-col items-center justify-center text-center"
+                  >
+                    <i
+                      class="fab fa-github lg:text-10xl mb-4 text-6xl text-violet-400/20 sm:text-8xl md:text-9xl dark:text-violet-300/20"
+                    ></i>
+                    <a
+                      href="https://github.com/BaraAlOmari"
+                      class="text-lg text-violet-500 hover:underline sm:text-xl dark:text-violet-400"
+                    >
+                      View More Projects...
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div
-            class="project-card group rounded-xl bg-stone-300/50 p-6 outline-2 outline-violet-400 backdrop-blur-sm transition-all duration-500 hover:outline-4 md:hover:bg-stone-400/70 dark:bg-stone-800/50 md:dark:hover:bg-stone-800/70"
+          <!-- Navigation Arrows -->
+          <button
+            id="carousel-prev"
+            class="absolute top-1/2 left-0 z-10 hidden -translate-y-1/2 transform rounded-full bg-stone-300/50 p-3 px-5 pt-4 backdrop-blur-sm transition-all hover:bg-violet-400/30 focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:outline-none md:block dark:bg-stone-800/50 dark:hover:bg-violet-100/30 dark:focus:ring-offset-gray-900"
           >
-            <div
-              class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-violet-900/30"
-            >
-              <i
-                class="fas fa-book text-xl text-violet-900 dark:text-violet-400"
-              ></i>
-            </div>
-            <h3
-              class="mb-2 text-xl font-semibold text-violet-400 dark:text-violet-200"
-            >
-              Library Management Desktop System
-            </h3>
-            <img
-              src="assets/images/P02.png"
-              alt="Preview Image"
-              class="mb-2 h-auto w-full rounded-lg md:hidden"
-            />
-            <p class="mb-2 md:hidden dark:text-violet-100/80">
-              The Library Management System is a desktop-based application for
-              librarians to manage library operations efficiently. It includes
-              book checkouts, returns, cataloging, member management, due date
-              tracking, fines for late returns, and a search functionality for
-              finding books, while implementing security measures against
-              potential threats to prevent unauthorized access and potential
-              abuse.
-            </p>
-            <a
-              class="py-4 text-sm text-violet-500 md:hidden dark:text-violet-400"
-              href="https://github.com/3bdop/Library-Management-System"
-              ><i class="fas fa-code-branch"></i> GitHub Repository</a
-            >
-            <p
-              class="mb-4 hidden text-stone-700 md:block dark:text-violet-100/80"
-            >
-              Secure desktop application built with JavaFX
-            </p>
-            <div class="flex flex-wrap gap-2 pt-4 md:pt-0">
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >Java</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >JavaFX</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >MySQL</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >STRID</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs md:hidden dark:bg-violet-900/50"
-                >DREAD</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs md:hidden dark:bg-violet-900/50"
-                >OWASP</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs md:hidden dark:bg-violet-900/50"
-                >SSDLC</span
-              >
-            </div>
-            <div
-              class="preview-popup pointer-events-none absolute bottom-full left-1/2 z-50 mb-4 hidden w-130 -translate-x-1/2 scale-95 transform rounded-lg bg-stone-300 p-4 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 md:block dark:bg-stone-900"
-            >
-              <img
-                src="assets/images/P02.png"
-                alt="Preview Image"
-                class="mb-2 h-auto w-full cursor-pointer rounded"
-                onclick="openLightbox(this.src)"
-              />
-              <div class="mt-2 mb-2 flex flex-wrap gap-2">
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >Java</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >JavaFX</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >MySQL</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >STRID</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >DREAD</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >OWASP</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >SSDLC</span
-                >
-              </div>
-              <p class="text-sm">
-                The Library Management System is a desktop-based application for
-                librarians to manage library operations efficiently. It includes
-                book checkouts, returns, cataloging, member management, due date
-                tracking, fines for late returns, and a search functionality for
-                finding books, while implementing security measures against
-                potential threats to prevent unauthorized access and potential
-                abuse.
-              </p>
-              <a
-                class="text-sm text-violet-500 dark:text-violet-400"
-                href="https://github.com/3bdop/Library-Management-System"
-                ><i class="fas fa-code-branch"></i> GitHub Repository</a
-              >
-            </div>
-          </div>
+            <i
+              class="fas fa-chevron-left text-xl text-violet-400 dark:text-violet-300"
+            ></i>
+          </button>
+          <button
+            id="carousel-next"
+            class="absolute top-1/2 right-0 z-10 hidden -translate-y-1/2 transform rounded-full bg-stone-300/50 p-3 px-5 pt-4 backdrop-blur-sm transition-all hover:bg-violet-400/30 focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:outline-none md:block dark:bg-stone-800/50 dark:hover:bg-violet-100/30 dark:focus:ring-offset-gray-900"
+          >
+            <i
+              class="fas fa-chevron-right text-xl text-violet-400 dark:text-violet-300"
+            ></i>
+          </button>
 
-          <div
-            class="project-card group rounded-xl bg-stone-300/50 p-6 outline-2 outline-violet-400 backdrop-blur-sm transition-all duration-500 hover:outline-4 md:hover:bg-stone-400/70 dark:bg-stone-800/50 md:dark:hover:bg-stone-800/70"
-          >
-            <div
-              class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-violet-900/30"
-            >
-              <i
-                class="fa-solid fa-graduation-cap text-xl text-violet-900 dark:text-violet-400"
-              ></i>
-            </div>
-            <h3
-              class="mb-2 text-xl font-semibold text-violet-400 dark:text-violet-200"
-            >
-              Student Self-Assessment Web Application
-            </h3>
-            <img
-              src="assets/images/P03.png"
-              alt="Preview Image"
-              class="mb-2 h-auto w-full rounded-lg md:hidden"
-            />
-            <p class="mb-2 md:hidden dark:text-violet-100/80">
-              Flask Web application enables users to create and manage a library
-              of multiple-choice questions, it provides AI-generated quizes and
-              manual input. The system also allows for seamless editing and
-              management of questions. Additionally, the application provides an
-              interactive self-assessment feature where users can take quizzes
-              based on their question libraries and receive computed scores,
-              helping them evaluate their knowledge and progress over time.
-            </p>
-            <a
-              class="py-4 text-sm text-violet-500 md:hidden dark:text-violet-400"
-              href="https://infs3203project-fmhpf2c5bpfwh5dg.canadacentral-01.azurewebsites.net/"
-              ><i class="fas fa-link"></i> Live Demo</a
-            >
-            <p
-              class="mb-4 hidden text-stone-700 md:block dark:text-violet-100/80"
-            >
-              Web application for students to assess their learning & create
-              quizzes using AI
-            </p>
-            <div class="flex flex-wrap gap-2 pt-4 md:pt-0">
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >Python</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >Flask</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >Bootstrap</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                >OpenAI API</span
-              >
-              <span
-                class="rounded bg-violet-400/50 px-2 py-1 text-xs md:hidden dark:bg-violet-900/50"
-                >MongoDB</span
-              >
-            </div>
-            <div
-              class="preview-popup pointer-events-none absolute bottom-full left-1/2 z-50 mb-4 hidden w-130 -translate-x-1/2 scale-95 transform rounded-lg bg-stone-300 p-4 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 md:block dark:bg-stone-900"
-            >
-              <img
-                src="assets/images/P03.png"
-                alt="Preview Image"
-                class="mb-2 h-auto w-full cursor-pointer rounded"
-                onclick="openLightbox(this.src)"
-              />
-              <div class="mt-2 mb-2 flex flex-wrap gap-2">
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >Python</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >Flask</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >Bootstrap</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >OpenAI API</span
-                >
-                <span
-                  class="rounded bg-violet-400/50 px-2 py-1 text-xs dark:bg-violet-900/50"
-                  >MongoDB</span
-                >
-              </div>
-              <p class="text-sm">
-                Flask Web application enables users to create and manage a
-                library of multiple-choice questions, it provides AI-generated
-                quizes and manual input. The system also allows for seamless
-                editing and management of questions. Additionally, the
-                application provides an interactive self-assessment feature
-                where users can take quizzes based on their question libraries
-                and receive computed scores, helping them evaluate their
-                knowledge and progress over time.
-              </p>
-              <a
-                class="text-sm text-violet-500 dark:text-violet-400"
-                href="https://infs3203project-fmhpf2c5bpfwh5dg.canadacentral-01.azurewebsites.net/"
-                ><i class="fas fa-link"></i> Live Demo</a
-              >
-            </div>
+          <!-- Dot Indicators -->
+          <div class="mt-2 flex justify-center space-x-2 md:mt-0">
+            <button
+              class="dot-indicator h-2 w-2 rounded-full bg-violet-400/50 transition-all duration-300 hover:bg-violet-400/75 focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:outline-none md:h-3 md:w-3 dark:bg-violet-600/50 dark:hover:bg-violet-600/75 dark:focus:ring-offset-gray-900"
+              data-slide="0"
+            ></button>
+            <button
+              class="dot-indicator h-2 w-2 rounded-full bg-violet-400/50 transition-all duration-300 hover:bg-violet-400/75 focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:outline-none md:h-3 md:w-3 dark:bg-violet-600/50 dark:hover:bg-violet-600/75 dark:focus:ring-offset-gray-900"
+              data-slide="1"
+            ></button>
+            <button
+              class="dot-indicator h-2 w-2 rounded-full bg-violet-400/50 transition-all duration-300 hover:bg-violet-400/75 focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:outline-none md:h-3 md:w-3 dark:bg-violet-600/50 dark:hover:bg-violet-600/75 dark:focus:ring-offset-gray-900"
+              data-slide="2"
+            ></button>
+            <button
+              class="dot-indicator h-2 w-2 rounded-full bg-violet-400/50 transition-all duration-300 hover:bg-violet-400/75 focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:outline-none md:h-3 md:w-3 dark:bg-violet-600/50 dark:hover:bg-violet-600/75 dark:focus:ring-offset-gray-900"
+              data-slide="3"
+            ></button>
           </div>
-
-          <div
-            class="rounded-xl p-6 backdrop-blur-sm transition-all duration-500 hover:bg-stone-400/70 dark:hover:bg-stone-800/70"
-            style="z-index: -1"
-          >
-            <a
-              class="text-xl text-violet-400/80 dark:text-violet-100/80"
-              href="https://github.com/BaraAlOmari"
-              >View More...</a
-            >
-          </div>
-        </div>
-        <div
-          id="lightbox"
-          class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/80"
-        >
-          <span
-            class="absolute top-4 right-6 cursor-pointer text-3xl text-white"
-            onclick="closeLightbox()"
-            >&times;</span
-          >
-          <img
-            id="lightbox-img"
-            src=""
-            class="max-h-[80%] max-w-[80%] rounded shadow-lg"
-          />
         </div>
       </section>
 
       <!-- Certifications Section -->
-      <section id="skills" class="mt-16">
+      <section id="skills" class="mt-21">
         <div class="mb-8 flex items-center justify-center">
           <div
             class="mr-4 hidden h-1 flex-grow rounded-full bg-violet-700 md:block"
@@ -981,7 +921,7 @@
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="mt-16 text-center">
+      <section id="contact" class="mt-21 text-center">
         <div class="mb-6 flex items-center justify-center">
           <div
             class="mr-4 hidden h-1 flex-grow rounded-full bg-violet-700 md:block"
