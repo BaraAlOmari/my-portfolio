@@ -8,55 +8,55 @@ const bodyElement = document.body
 let currentTheme = 'dark' // Global variable to track theme state
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none')
-    } else {
-        backToTopBtn.classList.add('opacity-0', 'pointer-events-none')
-    }
+  if (window.scrollY > 300) {
+    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none')
+  } else {
+    backToTopBtn.classList.add('opacity-0', 'pointer-events-none')
+  }
 })
 
 backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 })
 
 // Navbar Scroll Effect
 function updateNavbarBackground() {
-    if (window.scrollY > 100) {
-        navbar.classList.add('md:backdrop-blur-md', 'md:p-12', 'md:rounded-3xl', 'md:transition-all', 'md:duration-500')
-        navbar.classList.remove('md:bg-stone-900/70', 'md:bg-violet-100/70')
+  if (window.scrollY > 100) {
+    navbar.classList.add('md:backdrop-blur-md', 'md:p-12', 'md:rounded-3xl', 'md:transition-all', 'md:duration-500')
+    navbar.classList.remove('md:bg-stone-900/70', 'md:bg-violet-100/70')
 
-        if (currentTheme === 'dark') {
-            navbar.classList.add('md:bg-stone-900/70')
-        } else {
-            navbar.classList.add('md:bg-violet-100/70')
-        }
+    if (currentTheme === 'dark') {
+      navbar.classList.add('md:bg-stone-900/70')
     } else {
-        navbar.classList.remove('md:backdrop-blur-md', 'md:bg-stone-900/70', 'md:bg-violet-100/70', 'md:p-12', 'md:rounded-3xl')
+      navbar.classList.add('md:bg-violet-100/70')
     }
+  } else {
+    navbar.classList.remove('md:backdrop-blur-md', 'md:bg-stone-900/70', 'md:bg-violet-100/70', 'md:p-12', 'md:rounded-3xl')
+  }
 }
 
 window.addEventListener('scroll', updateNavbarBackground)
 
 function setTheme(theme) {
-    currentTheme = theme // Update global theme state
+  currentTheme = theme // Update global theme state
 
-    if (theme === 'dark') {
-        htmlElement.classList.add('dark')
-        bodyElement.classList.remove('animated-gradient-light')
-        bodyElement.classList.add('animated-gradient')
-        themeIcon.classList.remove('fa-moon', 'pl-2')
-        themeIcon.classList.add('fa-sun', 'text-yellow-600', 'hover:text-yellow-500')
-        themeIcon.classList.remove('text-gray-800')
-    } else {
-        htmlElement.classList.remove('dark')
-        bodyElement.classList.remove('animated-gradient')
-        bodyElement.classList.add('animated-gradient-light')
-        themeIcon.classList.remove('fa-sun', 'text-yellow-600', 'hover:text-yellow-500')
-        themeIcon.classList.add('fa-moon', 'text-gray-800', 'hover:text-gray-400')
-    }
+  if (theme === 'dark') {
+    htmlElement.classList.add('dark')
+    bodyElement.classList.remove('animated-gradient-light')
+    bodyElement.classList.add('animated-gradient')
+    themeIcon.classList.remove('fa-moon', 'pl-2')
+    themeIcon.classList.add('fa-sun', 'text-yellow-600', 'hover:text-yellow-500')
+    themeIcon.classList.remove('text-gray-800')
+  } else {
+    htmlElement.classList.remove('dark')
+    bodyElement.classList.remove('animated-gradient')
+    bodyElement.classList.add('animated-gradient-light')
+    themeIcon.classList.remove('fa-sun', 'text-yellow-600', 'hover:text-yellow-500')
+    themeIcon.classList.add('fa-moon', 'text-gray-800', 'hover:text-gray-400')
+  }
 
-    localStorage.setItem('theme', theme)
-    updateNavbarBackground() // Update navbar immediately after theme switch
+  localStorage.setItem('theme', theme)
+  updateNavbarBackground() // Update navbar immediately after theme switch
 }
 
 // Initialize theme on load
@@ -65,78 +65,189 @@ setTheme(savedTheme)
 
 // Theme Toggle Button Click
 themeToggleButton.addEventListener('click', () => {
-    const newTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark'
-    themeIcon.classList.add('rotate-180')
-    setTheme(newTheme)
-    setTimeout(() => {
-        themeIcon.classList.remove('rotate-180')
-    }, 500)
+  const newTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark'
+  themeIcon.classList.add('rotate-180')
+  setTheme(newTheme)
+  setTimeout(() => {
+    themeIcon.classList.remove('rotate-180')
+  }, 500)
 })
 
 document.querySelectorAll('.project-card').forEach(card => {
-    const previewPopUp = card.querySelector('.preview-popup')
+  const previewPopUp = card.querySelector('.preview-popup')
 
-    // Show popup when hovering card
-    card.addEventListener('mouseenter', () => {
-        previewPopUp.classList.remove('pointer-events-none', 'opacity-0', 'scale-95')
-        previewPopUp.classList.add('opacity-100', 'scale-100')
-    })
+  // Show popup when hovering card
+  card.addEventListener('mouseenter', () => {
+    previewPopUp.classList.remove('pointer-events-none', 'opacity-0', 'scale-95')
+    previewPopUp.classList.add('opacity-100', 'scale-100')
+  })
 
-    // Hide popup when leaving both card AND popup
-    let timeout
-    const hidePopup = () => {
-        timeout = setTimeout(() => {
-            previewPopUp.classList.add('pointer-events-none', 'opacity-0', 'scale-95')
-            previewPopUp.classList.remove('opacity-100', 'scale-100')
-        }, 100) // Small delay to allow cursor movement
-    }
+  // Hide popup when leaving both card AND popup
+  let timeout
+  const hidePopup = () => {
+    timeout = setTimeout(() => {
+      previewPopUp.classList.add('pointer-events-none', 'opacity-0', 'scale-95')
+      previewPopUp.classList.remove('opacity-100', 'scale-100')
+    }, 100) // Small delay to allow cursor movement
+  }
 
-    card.addEventListener('mouseleave', hidePopup)
-    previewPopUp.addEventListener('mouseleave', hidePopup)
+  card.addEventListener('mouseleave', hidePopup)
+  previewPopUp.addEventListener('mouseleave', hidePopup)
 
-    // Cancel hide if we enter the popup
-    previewPopUp.addEventListener('mouseenter', () => {
-        clearTimeout(timeout)
-    })
+  // Cancel hide if we enter the popup
+  previewPopUp.addEventListener('mouseenter', () => {
+    clearTimeout(timeout)
+  })
 })
 
 document.querySelectorAll(".project-card").forEach(card => {
-    const popup = card.querySelector(".preview-popup")
+  const popup = card.querySelector(".preview-popup")
 
-    card.addEventListener("mouseenter", () => {
-        if (!popup) return // skip if no popup
+  card.addEventListener("mouseenter", () => {
+    if (!popup) return // skip if no popup
 
-        const rect = card.getBoundingClientRect()
-        const popupHeight = popup.offsetHeight || 300 // fallback if hidden
-        const spaceAbove = rect.top
-        const spaceBelow = window.innerHeight - rect.bottom
+    const rect = card.getBoundingClientRect()
+    const popupHeight = popup.offsetHeight || 300 // fallback if hidden
+    const spaceAbove = rect.top
+    const spaceBelow = window.innerHeight - rect.bottom
 
-        if (spaceBelow >= popupHeight) {
-            // Enough space below -> show below
-            popup.classList.remove("bottom-full", "mb-4")
-            popup.classList.add("top-full", "mt-4")
-        } else if (spaceAbove >= popupHeight) {
-            // Enough space above -> show above
-            popup.classList.remove("top-full", "mt-4")
-            popup.classList.add("bottom-full", "mb-4")
-        } else {
-            // Not enough space either way -> pick side with more space
-            if (spaceBelow >= spaceAbove) {
-                popup.classList.remove("bottom-full", "mb-4")
-                popup.classList.add("top-full", "mt-4")
-            } else {
-                popup.classList.remove("top-full", "mt-4")
-                popup.classList.add("bottom-full", "mb-4")
-            }
-        }
-    })
+    if (spaceBelow >= popupHeight) {
+      // Enough space below -> show below
+      popup.classList.remove("bottom-full", "mb-4")
+      popup.classList.add("top-full", "mt-4")
+    } else if (spaceAbove >= popupHeight) {
+      // Enough space above -> show above
+      popup.classList.remove("top-full", "mt-4")
+      popup.classList.add("bottom-full", "mb-4")
+    } else {
+      // Not enough space either way -> pick side with more space
+      if (spaceBelow >= spaceAbove) {
+        popup.classList.remove("bottom-full", "mb-4")
+        popup.classList.add("top-full", "mt-4")
+      } else {
+        popup.classList.remove("top-full", "mt-4")
+        popup.classList.add("bottom-full", "mb-4")
+      }
+    }
+  })
 })
 
 function openLightbox(src) {
-    document.getElementById("lightbox-img").src = src
-    document.getElementById("lightbox").classList.remove("hidden")
+  document.getElementById("lightbox-img").src = src
+  document.getElementById("lightbox").classList.remove("hidden")
 }
 
 function closeLightbox() {
-    document.getElementById("lightbox").classList.add("hidden")
+  document.getElementById("lightbox").classList.add("hidden")
 }
+
+// Carousel functionality
+function initCarousel() {
+  const track = document.getElementById('carousel-track')
+  const slides = Array.from(document.querySelectorAll('.carousel-slide'))
+  const prevBtn = document.getElementById('carousel-prev')
+  const nextBtn = document.getElementById('carousel-next')
+  const dots = Array.from(document.querySelectorAll('.dot-indicator'))
+
+  let currentIndex = 0
+
+  // Calculate the width of a single slide based on its class
+  function getSlideWidth() {
+    const slide = document.querySelector('.carousel-slide')
+    return slide.offsetWidth
+  }
+
+  // Update carousel position
+  function updateCarousel() {
+    const slideWidth = getSlideWidth()
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`
+    updateDots()
+  }
+
+  // Move to specific slide
+  function moveToSlide(index) {
+    // Ensure index stays within bounds
+    if (index < 0) {
+      currentIndex = slides.length - 1
+    } else if (index >= slides.length) {
+      currentIndex = 0
+    } else {
+      currentIndex = index
+    }
+    updateCarousel()
+  }
+
+  function updateDots() {
+    dots.forEach((dot, i) => {
+      if (i === currentIndex) {
+        dot.classList.add('bg-violet-500', 'dark:bg-violet-700', 'md:w-6', 'w-4')
+        dot.classList.remove('bg-violet-400/50', 'dark:bg-violet-600/50', 'md:w-3', 'w-2')
+      } else {
+        dot.classList.remove('bg-violet-500', 'dark:bg-violet-700', 'md:w-6', 'w-4')
+        dot.classList.add('bg-violet-400/50', 'dark:bg-violet-600/50', 'md:w-3', 'w-2')
+      }
+    })
+  }
+
+  // Next slide
+  function nextSlide() {
+    moveToSlide(currentIndex + 1)
+  }
+
+  // Previous slide
+  function prevSlide() {
+    moveToSlide(currentIndex - 1)
+  }
+
+  nextBtn.addEventListener('click', nextSlide)
+  prevBtn.addEventListener('click', prevSlide)
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      moveToSlide(parseInt(dot.dataset.slide, 10))
+    })
+  })
+
+
+  // Handle keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      nextSlide()
+    } else if (e.key === 'ArrowLeft') {
+      prevSlide()
+    }
+  })
+
+  // Handle swipe on touch devices
+  let touchStartX = 0
+  let touchEndX = 0
+
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX
+  }, { passive: true })
+
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX
+    handleSwipe()
+  }, { passive: true })
+
+  function handleSwipe() {
+    const threshold = 50; // Minimum swipe distance
+    if (touchEndX < touchStartX - threshold) {
+      nextSlide() // Swipe left
+    } else if (touchEndX > touchStartX + threshold) {
+      prevSlide() // Swipe right
+    }
+  }
+
+  // Initialize carousel
+  updateCarousel()
+
+  // Make responsive by recalculating on resize
+  window.addEventListener('resize', () => {
+    updateCarousel()
+  })
+}
+
+// Initialize carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', initCarousel)
