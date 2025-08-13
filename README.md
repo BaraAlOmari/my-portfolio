@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing my skills as a Software Engineer. Built with HTML5, CSS3, Tailwind CSS, and JavaScript, featuring a clean design with dark/light theme toggle and smooth animations.
 
-🌐 **Live Demo**: [https://baraalomari.github.io/my-portfolio/](https://baraalomari.github.io/my-portfolio/)
+🌐 **Live Website**: [https://baraalomari.github.io/my-portfolio/](https://baraalomari.github.io/my-portfolio/)
 
 ## 🎯 Features
 
@@ -32,7 +32,7 @@ A modern, responsive portfolio website showcasing my skills as a Software Engine
 
 ## 📋 Sections
 
-1. **Hero Section** - Introduction with animated gradient background
+1. **Introduction** - Introduction with animated gradient background
 2. **About Me** - Personal introduction and background
 3. **Technical Skills** - Programming languages, frameworks, and tools
 4. **Featured Projects** - Showcase of key development projects
@@ -41,15 +41,15 @@ A modern, responsive portfolio website showcasing my skills as a Software Engine
 
 ## 🚀 Projects Featured
 
-- **E-commerce Platform** (JavaScript, Node.js)
+- **University Course Management Platform** (JavaScript, Node.js)
 - **Library Management System** (Java, JavaFX)
-- **Data Analysis Projects** (Python)
+- **Student Self-Assessment Web Application** (Python)
 
 ## 📱 Contact
 
 - **Email**: [baraalomari16@gmail.com](mailto:baraalomari16@gmail.com)
 - **GitHub**: [BaraAlOmari](https://github.com/BaraAlOmari)
-- **LinkedIn**: Connect with me for professional opportunities
+- **LinkedIn**: [BaraAlOmari]([https://github.com/BaraAlOmari](https://www.linkedin.com/in/bara-al-omari-128826374/))
 
 ## 🔧 Local Development
 
@@ -96,27 +96,6 @@ my-portfolio/
 └── README.md           # Project documentation
 ```
 
-## 🎨 Customization
 
-The portfolio uses Tailwind CSS for styling, making it easy to customize:
 
-- **Colors**: Update the color scheme in `tailwind.config.js`
-- **Fonts**: Modify font imports in the HTML head section
-- **Content**: Update personal information in `index.html`
-- **Projects**: Add new projects in both `index.html` and `projects.html`
-
-## 📄 License
-
-This project is open source and available under the [ISC License](LICENSE).
-
-## 🤝 Contributing
-
-While this is a personal portfolio, suggestions and feedback are welcome! Feel free to:
-
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
-
----
-
-**Built with ❤️ by Bara' Al Omari**
+🌐 **Live Website**: [https://baraalomari.github.io/my-portfolio/](https://baraalomari.github.io/my-portfolio/)
