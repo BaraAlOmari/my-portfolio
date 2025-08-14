@@ -180,10 +180,10 @@ function initCarousel() {
   function updateDots() {
     dots.forEach((dot, i) => {
       if (i === currentIndex) {
-        dot.classList.add('bg-violet-500', 'dark:bg-violet-700', 'md:w-6', 'w-4')
+        dot.classList.add('bg-violet-500', 'dark:bg-violet-600', 'md:w-6', 'w-4')
         dot.classList.remove('bg-violet-400/50', 'dark:bg-violet-600/50', 'md:w-3', 'w-2')
       } else {
-        dot.classList.remove('bg-violet-500', 'dark:bg-violet-700', 'md:w-6', 'w-4')
+        dot.classList.remove('bg-violet-500', 'dark:bg-violet-600', 'md:w-6', 'w-4')
         dot.classList.add('bg-violet-400/50', 'dark:bg-violet-600/50', 'md:w-3', 'w-2')
       }
     })
