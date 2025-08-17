@@ -1004,6 +1004,58 @@
       <i class="fas fa-chevron-up pt-1 pr-1 pl-1 md:text-2xl"></i>
     </button>
 
+    <!-- Chat Widget -->
+    <div
+      id="chat-widget"
+      class="fixed bottom-8 left-8 z-50 transition-all duration-300"
+    >
+      <div
+        id="chat-container"
+        class="hidden w-80 rounded-xl bg-white shadow-xl md:w-96 dark:bg-stone-800"
+      >
+        <div
+          class="flex items-center justify-between rounded-t-xl bg-violet-500 p-4 text-white"
+        >
+          <h3 class="text-lg font-semibold">Ask About Me</h3>
+          <button id="close-chat" class="text-xl hover:text-violet-200">
+            &times;
+          </button>
+        </div>
+        <div id="chat-messages" class="h-64 overflow-y-auto p-4"></div>
+        <div class="border-t p-4 dark:border-stone-600">
+          <div class="flex">
+            <input
+              id="chat-input"
+              type="text"
+              placeholder="Ask me anything..."
+              class="flex-1 rounded-l-lg border border-r-0 border-gray-300 p-2 focus:ring-2 focus:ring-violet-400 focus:outline-none dark:border-stone-600 dark:bg-stone-700 dark:text-white"
+            />
+            <button
+              id="send-btn"
+              class="rounded-r-lg bg-violet-500 px-4 text-white hover:bg-violet-600 dark:bg-violet-700 dark:hover:bg-violet-800 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+      <button
+        id="chat-toggle"
+        class="mt-4 flex h-17 w-17 items-center justify-center rounded-full bg-violet-500 text-white shadow-lg transition-all hover:bg-violet-600 hover:shadow-xl dark:bg-violet-700 dark:hover:bg-violet-800"
+        style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486)"
+      >
+        <i class="fas fa-robot text-3xl"></i>
+        <span class="absolute right-1 bottom-12 flex size-4">
+          <span
+            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-300 opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex size-4 rounded-full bg-violet-400"
+          ></span>
+        </span>
+      </button>
+    </div>
+
     <!-- Footer -->
     <footer class="mt-8 text-violet-500/75 dark:text-violet-400/75">
       <p>&copy; 2025 Bara' Al Omari. All rights reserved.</p>
