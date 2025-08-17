@@ -180,10 +180,10 @@ function initCarousel() {
   function updateDots() {
     dots.forEach((dot, i) => {
       if (i === currentIndex) {
-        dot.classList.add('bg-violet-500', 'dark:bg-violet-600', 'md:w-6', 'w-4')
+        dot.classList.add('bg-violet-500', 'dark:bg-violet-500', 'md:w-6', 'w-4')
         dot.classList.remove('bg-violet-400/50', 'dark:bg-violet-600/50', 'md:w-3', 'w-2')
       } else {
-        dot.classList.remove('bg-violet-500', 'dark:bg-violet-600', 'md:w-6', 'w-4')
+        dot.classList.remove('bg-violet-500', 'dark:bg-violet-500', 'md:w-6', 'w-4')
         dot.classList.add('bg-violet-400/50', 'dark:bg-violet-600/50', 'md:w-3', 'w-2')
       }
     })
@@ -232,7 +232,7 @@ function initCarousel() {
   }, { passive: true })
 
   function handleSwipe() {
-    const threshold = 50; // Minimum swipe distance
+    const threshold = 50 // Minimum swipe distance
     if (touchEndX < touchStartX - threshold) {
       nextSlide() // Swipe left
     } else if (touchEndX > touchStartX + threshold) {
@@ -251,3 +251,77 @@ function initCarousel() {
 
 // Initialize carousel when DOM is loaded
 document.addEventListener('DOMContentLoaded', initCarousel)
+
+function typeWriter() {
+  const texts = [
+    {
+      element: document.getElementById('typewriter-hello'),
+      text: 'Hello',
+      colorSpan: '<span class="text-violet-700"> .</span>',
+      delay: 500 // Start immediately
+    },
+    {
+      element: document.getElementById('typewriter-name'),
+      text: "I'm Bara'",
+      delay: 2000 // Start after hello is done
+    },
+    {
+      element: document.getElementById('typewriter-title'),
+      text: 'Software Engineer ',
+      delay: 4000 // Start after name is done
+    }
+  ]
+
+  function typeText(textObj, index = 0) {
+    const { element, text, colorSpan, delay } = textObj
+    const textSpan = element.querySelector('.typewriter-text')
+    const cursor = element.querySelector('.typewriter-cursor')
+
+    if (index === 0) {
+      // Show the element and start typing
+      element.style.opacity = '1'
+    }
+
+    if (index < text.length) {
+      textSpan.innerHTML = text.slice(0, index + 1)
+      setTimeout(() => typeText(textObj, index + 1), 100) // Typing speed
+    } else {
+      // Add color span if it exists (for the dot in "Hello.")
+      if (colorSpan) {
+        textSpan.innerHTML = text + colorSpan
+      }
+
+      // Trigger line animation when "I'm Bara'" finishes
+      if (textObj.text === "I'm Bara'") {
+        setTimeout(() => {
+          const animatedLine = document.getElementById('animated-line')
+          animatedLine.classList.remove('w-0', 'ml-5')
+          animatedLine.classList.add('w-65')
+        }, 300) // Small delay before line animation starts
+      }
+
+      // For the last text ("Software Engineer"), keep cursor visible and blinking
+      if (textObj === texts[texts.length - 1]) {
+        cursor.classList.add('animate-blink')
+      } else {
+        // Hide cursor for other texts after a brief pause
+        setTimeout(() => {
+          cursor.classList.add('hidden')
+        }, 500)
+      }
+    }
+  }
+
+  // Start each typewriter sequence with delays
+  texts.forEach((textObj, i) => {
+    setTimeout(() => {
+      typeText(textObj)
+    }, textObj.delay)
+  })
+}
+
+// Initialize typewriter when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  initCarousel()
+  typeWriter()
+})

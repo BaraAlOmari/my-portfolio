@@ -114,6 +114,20 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .animate-blink {
+        animation: blink 1s linear infinite;
+      }
     </style>
   </head>
   <!-- Stars bg -->
@@ -180,39 +194,48 @@
     >
       <div class="order-2 flex flex-1 flex-col md:order-1 md:min-w-[450px]">
         <div class="flex space-x-4">
-          <p class="text-3xl font-bold md:text-4xl">
-            Hello <span class="text-violet-700">.</span>
+          <p id="typewriter-hello" class="text-3xl font-bold md:text-4xl">
+            <span class="typewriter-text"></span
+            ><span class="typewriter-cursor">|</span>
           </p>
         </div>
         <div class="mb-3 flex items-center space-x-4">
           <div
-            class="my-7 mt-12.5 -ml-60 h-1 w-65 rounded-[10px] bg-violet-700"
+            id="animated-line"
+            class="my-7 mt-12.5 -ml-60 ml-5 h-1 w-0 rounded-[10px] bg-violet-700 transition-all duration-2000"
           ></div>
-          <p class="text-3xl md:text-4xl">I'm Bara'</p>
+          <p id="typewriter-name" class="text-3xl opacity-0 md:text-4xl">
+            <span class="typewriter-text"></span
+            ><span class="typewriter-cursor">|</span>
+          </p>
         </div>
         <div class="-my-4 mb-2 flex space-x-4">
-          <p class="text-3xl font-bold whitespace-nowrap md:text-4xl">
-            Software Engineer
+          <p
+            id="typewriter-title"
+            class="text-3xl font-bold whitespace-nowrap opacity-0 md:text-4xl"
+          >
+            <span class="typewriter-text"></span
+            ><span class="typewriter-cursor">|</span>
           </p>
         </div>
         <!-- Social Links -->
         <div class="mt-6 mb-2 flex space-x-4 md:mt-9">
           <a
-            class="button flex items-center rounded-full bg-violet-400 p-3 transition-all duration-500 hover:bg-violet-500 dark:bg-violet-700 dark:hover:bg-violet-800"
+            class="button flex items-center rounded-full bg-violet-400 p-3 transition-all duration-500 hover:bg-violet-500 dark:bg-violet-700 dark:hover:bg-violet-900"
             href="https://github.com/BaraAlOmari"
             style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486)"
           >
             <i class="fab fa-github m-1 text-xl md:text-2xl"></i>
           </a>
           <a
-            class="button flex items-center rounded-full bg-violet-400 p-3 transition-all duration-500 hover:bg-violet-500 dark:bg-violet-700 dark:hover:bg-violet-800"
+            class="button flex items-center rounded-full bg-violet-400 p-3 transition-all duration-500 hover:bg-violet-500 dark:bg-violet-700 dark:hover:bg-violet-900"
             href="https://www.linkedin.com/in/bara-al-omari-128826374/"
             style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486)"
           >
             <i class="fab fa-linkedin m-1 text-xl md:text-2xl"></i>
           </a>
           <a
-            class="button flex items-center rounded-full bg-violet-300/75 p-3 text-sm font-semibold text-gray-700 outline-2 outline-violet-400 transition-all duration-500 hover:bg-violet-700/30 md:text-base dark:bg-violet-950/75 dark:text-gray-100 dark:outline-violet-700"
+            class="button flex items-center rounded-full bg-violet-300/50 p-3 text-sm font-semibold text-gray-700 outline-2 outline-violet-400 transition-all duration-500 hover:bg-violet-500/50 md:text-base dark:bg-violet-950/50 dark:text-gray-100 dark:outline-violet-700 dark:hover:bg-violet-700/50"
             href=""
             style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486)"
           >
@@ -387,7 +410,7 @@
             class="mt-4 text-lg leading-relaxed text-stone-700 dark:text-violet-100"
           >
             Equipped with foundational and advanced knowledge in cybersecurity,
-            networking, API, DevOps, UI/UX and systems analysis, design and
+            networking, APIs, DevOps, UI/UX and systems analysis, design and
             deployment. Adept at delivering high-quality software solutions
             following agile and secure development methodologies.
           </p>
@@ -576,9 +599,12 @@
                     >
                       Web-based Course Management System designed to handle and
                       streamline academic requests made by students to the Head
-                      of Department (HoD). The system reduces the need for
-                      physical visits and organizes requests into queues for
-                      better efficiency.
+                      of Department. The system reduces the need for physical
+                      visits and organizes requests into queues for better
+                      efficiency. The system provides students with account
+                      registration, email verification, request submission, and
+                      history tracking features, while offering department heads
+                      a dashboard to manage, resolve, and prioritize requests.
                     </p>
                   </div>
 
@@ -656,7 +682,9 @@
                       efficiently. It includes book checkouts, returns,
                       cataloging, member management, due date tracking, fines
                       for late returns, and a search functionality for finding
-                      books.
+                      books. While implementing security measures against
+                      potential threats to prevent unauthorized access and
+                      potential abuse.
                     </p>
                   </div>
 
@@ -728,6 +756,11 @@
                       library of multiple-choice questions, it provides
                       AI-generated quizes and manual input. The system also
                       allows for seamless editing and management of questions.
+                      Additionally, the application provides an interactive
+                      self-assessment feature where users can take quizzes based
+                      on their question libraries and receive computed scores,
+                      helping them evaluate their knowledge and progress over
+                      time.
                     </p>
                   </div>
 
@@ -747,7 +780,7 @@
                 class="carousel-slide w-full flex-shrink-0 px-2 sm:w-4/5 sm:px-4 md:w-3/5 lg:w-1/2"
               >
                 <div
-                  class="flex h-full items-center justify-center rounded-xl bg-stone-300/50 p-4 outline-3 outline-violet-400/50 backdrop-blur-sm transition-all duration-300 outline-dashed md:hover:shadow-2xl hover:shadow-lg sm:p-6 dark:bg-stone-800/50 dark:shadow-violet-500/40"
+                  class="flex h-full items-center justify-center rounded-xl bg-stone-300/50 p-4 outline-3 outline-violet-400/50 backdrop-blur-sm transition-all duration-300 outline-dashed hover:shadow-lg sm:p-6 md:hover:shadow-2xl dark:bg-stone-800/50 dark:shadow-violet-500/40"
                 >
                   <div
                     class="flex w-full flex-col items-center justify-center text-center"
@@ -948,14 +981,14 @@
           <a
             href="mailto:baraalomari16@gmail.com"
             style="box-shadow: 0px 3px 15px rgba(111, 0, 255, 0.486)"
-            class="flex items-center justify-center gap-2 rounded-lg bg-violet-400 px-6 py-3 text-white transition-all hover:bg-violet-500 dark:bg-violet-700 dark:hover:bg-violet-600"
+            class="flex items-center justify-center gap-2 rounded-lg bg-violet-400/65 px-6 py-3 font-semibold text-gray-700 outline-2 outline-violet-400 transition-all duration-500 hover:bg-violet-500/65 dark:bg-violet-700/50 dark:text-white dark:outline-violet-700 dark:hover:bg-violet-500/50"
           >
             <i class="fas fa-envelope"></i> Email Me
           </a>
           <a
             href="https://www.linkedin.com/in/bara-al-omari-128826374/"
             style="box-shadow: 0px 3px 15px rgba(114, 114, 114, 0.35)"
-            class="flex items-center justify-center gap-2 rounded-lg bg-stone-500 px-6 py-3 text-white transition-all hover:bg-stone-600 dark:bg-stone-700 dark:hover:bg-stone-600"
+            class="flex items-center justify-center gap-2 rounded-lg bg-stone-500/65 px-6 py-3 text-white outline-2 outline-stone-500 transition-all duration-500 hover:bg-stone-600/65 dark:bg-stone-700/50 dark:hover:bg-stone-500/50"
           >
             <i class="fab fa-linkedin-in"></i> LinkedIn
           </a>
