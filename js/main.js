@@ -52,7 +52,7 @@ function setTheme(theme) {
     bodyElement.classList.remove('animated-gradient')
     bodyElement.classList.add('animated-gradient-light')
     themeIcon.classList.remove('fa-sun', 'text-yellow-600', 'hover:text-yellow-500')
-    themeIcon.classList.add('fa-moon', 'text-gray-800', 'hover:text-gray-400')
+    themeIcon.classList.add('fa-moon', 'text-gray-800', 'hover:text-gray-400', 'pl-2')
   }
 
   localStorage.setItem('theme', theme)
@@ -249,9 +249,6 @@ function initCarousel() {
   })
 }
 
-// Initialize carousel when DOM is loaded
-document.addEventListener('DOMContentLoaded', initCarousel)
-
 function typeWriter() {
   const texts = [
     {
@@ -320,8 +317,202 @@ function typeWriter() {
   })
 }
 
-// Initialize typewriter when DOM is loaded
+// Chat Widget Functionality
+class ChatWidget {
+  constructor() {
+    this.chatToggle = document.getElementById('chat-toggle')
+    this.chatContainer = document.getElementById('chat-container')
+    this.closeChat = document.getElementById('close-chat')
+    this.chatInput = document.getElementById('chat-input')
+    this.sendBtn = document.getElementById('send-btn')
+    this.chatMessages = document.getElementById('chat-messages')
+    this.notificationIndicator = document.getElementById("notification-indicator")
+    this.notificationPopUp = document.getElementById("notification-pop-up")
+    this.isOpen = false
+    this.isLoading = false
+
+    this.init()
+  }
+
+  init() {
+    // Notification Pop-Up
+    this.chatToggle.addEventListener('mouseenter', () => {
+      this.showPopUp()
+    })
+
+    this.chatToggle.addEventListener('mouseleave', () => {
+      this.hidePopUp()
+    })
+
+    // Toggle chat widget
+    this.chatToggle.addEventListener('click', () => {
+      this.toggleChat()
+    })
+
+    // Close chat
+    this.closeChat.addEventListener('click', () => {
+      this.closeWidget()
+    })
+
+    // Send message on button click
+    this.sendBtn.addEventListener('click', () => {
+      this.sendMessage()
+    })
+
+    // Send message on Enter key
+    this.chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault()
+        this.sendMessage()
+      }
+    })
+
+    //Interval for Notification Pop Up every 10s
+    this.notificationPopUpInterval = setInterval(() => {
+      if (!this.isOpen) {
+        this.showPopUp()
+        setTimeout(() => {
+          this.hidePopUp()
+        }, 3000)
+      }
+    }, 10000)
+
+
+    // Add welcome message
+    this.addMessage('Hello! I\'m Bara\'s AI assistant. Feel free to ask me anything about his background, skills, projects, or experience! 👋', 'bot')
+  }
+
+  showPopUp() {
+    if (this.isOpen === false) {
+      this.notificationPopUp.classList.remove('opacity-0')
+    }
+  }
+
+  hidePopUp() {
+    this.notificationPopUp.classList.add('opacity-0')
+  }
+
+  toggleChat() {
+    this.isOpen = !this.isOpen
+    if (this.isOpen) {
+      this.chatContainer.classList.remove('hidden')
+      this.notificationIndicator.classList.add('hidden')
+      this.notificationPopUp.classList.add('opacity-0')
+      this.chatInput.focus()
+    } else {
+      this.chatContainer.classList.add('hidden')
+      this.notificationIndicator.classList.remove('hidden')
+      this.notificationPopUp.classList.remove('opacity-0')
+    }
+  }
+
+  closeWidget() {
+    this.isOpen = false
+    this.chatContainer.classList.add('hidden')
+    this.notificationIndicator.classList.remove('hidden')
+  }
+
+  async sendMessage() {
+    const message = this.chatInput.value.trim()
+    if (!message || this.isLoading) return
+
+    // Add user message to chat
+    this.addMessage(message, 'user')
+    this.chatInput.value = ''
+
+    // Show loading state
+    this.setLoading(true)
+
+    try {
+      // Send message to backend
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message })
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        this.addMessage(data.response, 'bot')
+      } else {
+        this.addMessage(data.error || 'Sorry, I encountered an error. Please try again.', 'bot', true)
+      }
+    } catch (error) {
+      console.error('Chat error:', error)
+      this.addMessage('Sorry, I\'m having trouble connecting. Please check your internet connection and try again.', 'bot', true)
+    } finally {
+      this.setLoading(false)
+    }
+  }
+
+  addMessage(text, sender, isError = false) {
+    const messageDiv = document.createElement('div')
+    messageDiv.className = `mb-4 ${sender === 'user' ? 'text-right' : 'text-left'}`
+
+    const messageContent = document.createElement('div')
+    messageContent.className = `inline-block max-w-xs rounded-lg px-3 py-2 text-sm ${sender === 'user'
+      ? 'bg-violet-500 text-white'
+      : isError
+        ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 shadow-lg'
+        : 'bg-gray-100 text-gray-800 dark:bg-stone-700 dark:text-stone-200 shadow-lg'
+      }`
+
+    messageContent.textContent = text
+    messageDiv.appendChild(messageContent)
+
+    // Add timestamp
+    const timestamp = document.createElement('div')
+    timestamp.className = `mt-1 text-xs ${sender === 'user' ? 'text-right' : 'text-left'
+      } text-gray-500 dark:text-stone-400`
+    timestamp.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    messageDiv.appendChild(timestamp)
+
+    this.chatMessages.appendChild(messageDiv)
+    this.scrollToBottom()
+  }
+
+  setLoading(loading) {
+    this.isLoading = loading
+    this.sendBtn.disabled = loading
+
+    if (loading) {
+      // Add typing indicator
+      const typingDiv = document.createElement('div')
+      typingDiv.id = 'typing-indicator'
+      typingDiv.className = 'mb-4 text-left'
+      typingDiv.innerHTML = `
+        <div class="inline-block max-w-xs rounded-lg bg-gray-100 px-3 py-2 text-sm dark:bg-stone-700">
+          <div class="flex space-x-1">
+            <div class="h-2 w-2 animate-bounce rounded-full bg-gray-400 dark:bg-stone-400" style="animation-delay: 0ms"></div>
+            <div class="h-2 w-2 animate-bounce rounded-full bg-gray-400 dark:bg-stone-400" style="animation-delay: 150ms"></div>
+            <div class="h-2 w-2 animate-bounce rounded-full bg-gray-400 dark:bg-stone-400" style="animation-delay: 300ms"></div>
+          </div>
+        </div>
+      `
+      this.chatMessages.appendChild(typingDiv)
+      this.scrollToBottom()
+    } else {
+      // Remove typing indicator
+      const typingIndicator = document.getElementById('typing-indicator')
+      if (typingIndicator) {
+        typingIndicator.remove()
+      }
+    }
+  }
+
+  scrollToBottom() {
+    this.chatMessages.scrollTop = this.chatMessages.scrollHeight
+  }
+}
+
+// Initialize chat widget
+let chatWidget
+
 document.addEventListener('DOMContentLoaded', () => {
   initCarousel()
   typeWriter()
+  chatWidget = new ChatWidget()
 })
