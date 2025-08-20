@@ -52,13 +52,31 @@ Industry Knowledge: Network Security, Cloud Computing, OCI, DevOps, UI/UX Design
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: process.env.NODE_ENV === 'production'
+    ? process.env.FRONTEND_URL
+    : 'http://localhost:3000',
   credentials: true
 }))
 app.use(express.json())
-app.use(express.static(path.join(__dirname)))
 
 // Serve static files
+app.use(express.static(path.join(__dirname), {
+  setHeaders: (res, path, stat) => {
+    if (path.endsWith('.css')) {
+      res.set('Content-Type', 'text/css')
+    }
+    if (path.endsWith('.js')) {
+      res.set('Content-Type', 'application/javascript')
+    }
+  }
+}))
+
+// Serve static files from specific directories
+app.use('/css', express.static(path.join(__dirname, 'css')))
+app.use('/js', express.static(path.join(__dirname, 'js')))
+app.use('/assets/images', express.static(path.join(__dirname, 'images')))
+
+// Serve main HTML file
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'))
 })
@@ -147,14 +165,24 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' })
 })
 
-// 404 handler
+// 404 handler for non-API routes
 app.use((req, res) => {
-  res.status(404).json({ error: 'Route not found' })
+  if (req.path.startsWith('/api/')) {
+    res.status(404).json({ error: 'API route not found' })
+  } else {
+    // Serve index.html for client-side routing
+    res.sendFile(path.join(__dirname, 'index.html'))
+  }
 })
 
-app.listen(PORT, () => {
-  const PORT = 3000
-  console.log(`Server running on \x1b[36mhttp://localhost:${PORT}\x1b[0m`)
-  console.log(`Serving static files from: \x1b[33m${__dirname}\x1b[0m`)
-  console.log(`OpenAI API configured: \x1b[32m${!!process.env.OPENAI_API_KEY}\x1b[0m`)
-})
+// Export for Vercel
+module.exports = app
+
+// Only listen if not in Vercel environment
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on \x1b[36mhttp://localhost:${PORT}\x1b[0m`)
+    console.log(`Serving static files from: \x1b[33m${__dirname}\x1b[0m`)
+    console.log(`OpenAI API configured: \x1b[32m${!!process.env.OPENAI_API_KEY}\x1b[0m`)
+  })
+}

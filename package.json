@@ -21,6 +21,7 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "build": "npx @tailwindcss/cli -i ./css/input.css -o ./css/output.css --minify",
+    "vercel-build": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
