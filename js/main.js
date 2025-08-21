@@ -379,7 +379,7 @@ class ChatWidget {
 
 
     // Add welcome message
-    this.addMessage('Hello! I\'m Bara\'s AI assistant. Feel free to ask me anything about his background, skills, projects, or experience! 👋', 'bot')
+    this.addMessage('Hello! I\'m Bara\' ☺️ Feel free to ask me anything about my background, skills, projects, or experience! 👋', 'bot')
   }
 
   showPopUp() {
