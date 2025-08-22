@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing my skills as a Software Engineer. Built with HTML5, CSS3, Tailwind CSS, and JavaScript, featuring a clean design with dark/light theme toggle and smooth animations.
 
-🌐 **Live Website**: [https://baraalomari.github.io/my-portfolio/](https://baraalomari.github.io/my-portfolio/)
+🌐 **Live Website**: [baraalomari.dev](https://baraalomari.dev)
 
 ## 🎯 Features
 
@@ -75,11 +75,12 @@ A modern, responsive portfolio website showcasing my skills as a Software Engine
    npx tailwindcss -i ./css/input.css -o ./css/output.css --watch
    ```
 
-4. **Open in browser**
+4. **Run the Server**
    ```bash
-   # Simply open index.html in your preferred browser
-   # Or use a local server like Live Server extension in VS Code
+   npm run start
    ```
+
+The application will be available at `http://localhost:3000`
 
 ### File Structure
 ```
@@ -97,5 +98,4 @@ my-portfolio/
 ```
 
 
-
-🌐 **Live Website**: [https://baraalomari.github.io/my-portfolio/](https://baraalomari.github.io/my-portfolio/)
+🌐 **Live Website**: [baraalomari.dev](https://baraalomari.dev)
