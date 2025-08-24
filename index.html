@@ -12,6 +12,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
     <title>BaraaCodes Portfolio</title>
     <style>
       html {
@@ -127,6 +129,15 @@
 
       .animate-blink {
         animation: blink 1s linear infinite;
+      }
+
+      #chat-messages a {
+        color: #8b5cf6 !important;
+        text-decoration: underline;
+      }
+
+      #chat-messages a:hover {
+        color: #7c3aed !important;
       }
     </style>
   </head>
@@ -268,7 +279,7 @@
       id="about"
       class="-mr-4 -ml-4 overflow-x-auto bg-violet-800/15 p-6 shadow-[0_-80px_115px_rgba(112,8,231,0.45)] backdrop-blur-sm md:-mr-6 md:-ml-6 md:min-w-[1380px] md:p-10 dark:bg-violet-500/10"
     >
-      <div class="flex min-w-max justify-center space-x-8 md:space-x-15">
+      <div class="flex min-w-max justify-center space-x-8 md:space-x-14">
         <i
           class="fab fa-html5 text-2xl text-violet-500/50 md:text-3xl dark:text-violet-400/50"
         ></i>
@@ -304,6 +315,9 @@
         ></i>
         <i
           class="fa-solid fa-cloud text-2xl text-violet-500/50 md:text-3xl dark:text-violet-400/50"
+        ></i>
+        <i
+          class="fa-brands fa-aws text-2xl text-violet-500/50 md:text-3xl dark:text-violet-400/50"
         ></i>
         <i
           class="fa-brands fa-linux text-2xl text-violet-500/50 md:text-3xl dark:text-violet-400/50"
@@ -446,13 +460,19 @@
               <li class="flex items-center gap-2">
                 <div class="h-2 w-2 rounded-full bg-violet-500"></div>
                 <span class="text-stone-700 dark:text-violet-100"
-                  >Java, Python, JavaScript, C#</span
+                  >Java, Python, JavaScript, PHP, C#</span
                 >
               </li>
               <li class="flex items-center gap-2">
                 <div class="h-2 w-2 rounded-full bg-violet-500"></div>
                 <span class="text-stone-700 dark:text-violet-100"
                   >HTML5, CSS3, Node.js, React</span
+                >
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full bg-violet-500"></div>
+                <span class="text-stone-700 dark:text-violet-100"
+                  >Bootstrap, Tailwind CSS</span
                 >
               </li>
             </ul>
@@ -476,8 +496,12 @@
               <li class="flex items-center gap-2">
                 <div class="h-2 w-2 rounded-full bg-violet-500"></div>
                 <span class="text-stone-700 dark:text-violet-100"
-                  >Azure, Oracle, Docker</span
+                  >Azure, AWS, Oracle</span
                 >
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full bg-violet-500"></div>
+                <span class="text-stone-700 dark:text-violet-100">Docker</span>
               </li>
             </ul>
           </div>
@@ -494,13 +518,19 @@
               <li class="flex items-center gap-2">
                 <div class="h-2 w-2 rounded-full bg-violet-500"></div>
                 <span id="projects" class="text-stone-700 dark:text-violet-100"
-                  >Figma, Notion, Github, Linux</span
+                  >Figma, Canva</span
                 >
               </li>
               <li class="flex items-center gap-2">
                 <div class="h-2 w-2 rounded-full bg-violet-500"></div>
                 <span class="text-stone-700 dark:text-violet-100"
-                  >DevOps, CI/CD, Agile Methodologies</span
+                  >DevOps, CI/CD, Git, Linux</span
+                >
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full bg-violet-500"></div>
+                <span class="text-stone-700 dark:text-violet-100"
+                  >Notion, Agile Methodologies</span
                 >
               </li>
             </ul>
@@ -1018,7 +1048,7 @@
 
       <div
         id="chat-container"
-        class="hidden w-80 rounded-xl border border-gray-500/25 bg-white/25 shadow-xl backdrop-blur-lg md:w-96 dark:bg-stone-800/25 transition-all duration-500"
+        class="hidden w-80 rounded-xl border border-gray-500/25 bg-white/25 shadow-xl backdrop-blur-lg transition-all duration-500 md:w-96 dark:bg-stone-800/25"
       >
         <div
           class="flex items-center justify-between rounded-t-xl bg-violet-500/25 p-4 backdrop-blur-lg dark:text-white"
@@ -1035,7 +1065,7 @@
               id="chat-input"
               type="text"
               placeholder="Ask me anything..."
-              class="flex-1 rounded-l-lg border border-r-0 w-full max-w-full border-gray-300 p-2 text-black backdrop-blur-lg focus:outline-none dark:border-stone-600 dark:bg-stone-700/50 dark:text-white"
+              class="w-full max-w-full flex-1 rounded-l-lg border border-r-0 border-gray-300 p-2 text-black backdrop-blur-lg focus:outline-none dark:border-stone-600 dark:bg-stone-700/50 dark:text-white"
             />
             <button
               id="send-btn"

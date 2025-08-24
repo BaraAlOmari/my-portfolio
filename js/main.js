@@ -460,8 +460,11 @@ class ChatWidget {
         : 'bg-gray-100 text-gray-800 dark:bg-stone-700 dark:text-stone-200 shadow-lg'
       }`
 
-    messageContent.textContent = text
-    messageDiv.appendChild(messageContent)
+    // Parse Markdown and sanitize HTML
+    const rawHtml = marked.parse(text);
+    messageContent.innerHTML = DOMPurify.sanitize(rawHtml);
+
+    messageDiv.appendChild(messageContent);
 
     // Add timestamp
     const timestamp = document.createElement('div')
