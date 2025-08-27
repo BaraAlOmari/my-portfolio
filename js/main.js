@@ -1,4 +1,5 @@
 const backToTopBtn = document.getElementById('backToTop')
+const bottomArrow = document.getElementById('bottomArrow')
 const navbar = document.getElementById('navbar')
 const themeToggleButton = document.getElementById('theme-toggle')
 const themeIcon = document.getElementById('theme-icon')
@@ -12,6 +13,14 @@ window.addEventListener('scroll', () => {
     backToTopBtn.classList.remove('opacity-0', 'pointer-events-none')
   } else {
     backToTopBtn.classList.add('opacity-0', 'pointer-events-none')
+  }
+})
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    bottomArrow.classList.add('opacity-0')
+  } else {
+    bottomArrow.classList.remove('opacity-0')
   }
 })
 
@@ -414,6 +423,13 @@ class ChatWidget {
 
   async sendMessage() {
     const message = this.chatInput.value.trim()
+
+    // Validate message length
+    if (message.length > 500) {
+      this.addMessage('Message is too long. Please limit to 500 characters.', 'bot', true)
+      return
+    }
+    
     if (!message || this.isLoading) return
 
     // Add user message to chat
